@@ -16,10 +16,10 @@
         border-top: 1px solid #dee2e6;
     }
     .table thead th, .table tr, .table tbody td{
-      border: 1px solid black;
+      border: 1px solid #8e8c8c;
     }
     .table tfoot td{
-      border: 1px solid black;
+      border: 1px solid #8e8c8c;
       padding: 3px
     }
     .head-1 th, .head-2 th{
@@ -35,14 +35,88 @@
       background: #d9e1ee;
       color: black;
     }
+    /*===Checkbox=====*/
+    *{font-family: 'Roboto', sans-serif;}
+    @keyframes click-wave {
+      0% {
+        height: 40px;
+        width: 40px;
+        opacity: 0.35;
+        position: relative;
+      }
+      100% {
+        height: 200px;
+        width: 200px;
+        margin-left: -80px;
+        margin-top: -80px;
+        opacity: 0;
+      }
+    }
+
+    .option-input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      -o-appearance: none;
+      appearance: none;
+      position: relative;
+      top: 8.33333px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 30px;
+      width: 30px;
+      transition: all 0.15s ease-out 0s;
+      background: #cbd1d8;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 0.5rem;
+      outline: none;
+      position: relative;
+      z-index: 1000;
+    }
+    .option-input:hover {
+      background: #9faab7;
+    }
+    .option-input:checked {
+      background: #40e0d0;
+    }
+    .option-input:checked::before {
+      height: 40px;
+      width: 28px;
+      position: absolute;
+      content: '✔';
+      display: inline-block;
+      font-size: 26.66667px;
+      text-align: center;
+      line-height: 30px;
+    }
+    .option-input:checked::after {
+      -webkit-animation: click-wave 0.65s;
+      -moz-animation: click-wave 0.65s;
+      animation: click-wave 0.65s;
+      background: #40e0d0;
+      content: '';
+      display: block;
+      position: relative;
+      z-index: 100;
+    }
+    .option-input.radio {
+      border-radius: 50%;
+    }
+    .option-input.radio::after {
+      border-radius: 50%;
+    }
   </style>
 </head>
-<body>
+<body style="background: url(bg-body.png)">
   
 <div class="container-fluid mt-3">
   <div class="row mx-0">
-    <div class="col-md-11 card shadow bg-light mx-auto">
-       <h4 class="text-center"><b>Checklist for Medical Supplies</b></h4>
+    <div class="col-md-11 card shadow mx-auto">
+       <h4 class="text-center my-2"><b>Checklist for Medical Supplies</b></h4>
        <!-- <table class="table table-bordered mb-0">
           <thead>
             <tr>
@@ -67,7 +141,7 @@
             <tr class="text-left head-2">
               <th colspan="5">Tender Name :</th>
               <th colspan="5">Meterial Description :</th>
-              <th colspan="5">Legend : &ensp;<span><b><i class="fas fa-check text-success"></i></b>-ACCEPT</span> <span><b><i class="fas fa-times text-danger"></i></b>-REJECT</span></th>
+              <th colspan="5">Legend : &emsp;<span><b><i class="fas fa-check text-success"></i></b>-ACCEPT</span>&emsp; <span><b><i class="fas fa-times text-danger"></i></b>-REJECT</span></th>
             </tr>
             <tr class="head-3">
               <th width="5%" rowspan="3" style="vertical-align: middle;">S.N</th>
@@ -137,10 +211,10 @@
               <td></td>
               <td></td>
               <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
               <td></td>
               <td></td>
             </tr>
@@ -151,11 +225,11 @@
               <td>Vendor 2</td>
               <td></td>
               <td></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
               <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
               <td></td>
               <td></td>
             </tr>
@@ -166,11 +240,11 @@
               <td>Vendor 3</td>
               <td></td>
               <td></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
               <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
               <td></td>
               <td></td>
             </tr>
@@ -181,10 +255,10 @@
               <td>Vendor 4</td>
               <td></td>
               <td></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
               <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
               <td></td>
               <td></td>
@@ -196,53 +270,67 @@
               <td>Vendor 5</td>
               <td></td>
               <td></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
               <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
-              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-times text-danger"></i></button></td>
               <td></td>
               <td></td>
             </tr>
 
           </tbody>
         </table> 
-        <table class="table table-bordered text-center">
+        <table class="table table-bordered text-center" style="background: #f2f2f2;font-size: 14px">
           <tfoot>
             <tr>
               <td rowspan="2" colspan="2" style="vertical-align: middle;"><b>NUPCO REMARKS</b></td>
               <td>
-                <button class="btn btn-default"><i class="fas fa-times text-danger"></i></button> 
-                &ensp; AWARDED
+                <label>
+                  <input type="radio" class="option-input radio" name="example" checked />AWARDED
+                </label>
               </td>
               <td>
-                <button class="btn btn-default"><i class="fas fa-times text-danger"></i></button> 
-                 &ensp; SPLIT
+                <label>
+                  <input type="radio" class="option-input radio" name="example" />SPLIT
+                </label>
                </td>
               <td>
-                <button class="btn btn-default"><i class="fas fa-times text-danger"></i></button> 
-                &ensp; CANCELLED
+                <label>
+                  <input type="radio" class="option-input radio" name="example" />CANCELLED
+                </label>
               </td>
               <td>
-                <button class="btn btn-default"><i class="fas fa-times text-danger"></i></button> 
-                &ensp; ON HOLD
+                <label>
+                  <input type="radio" class="option-input radio" name="example" />ON HOLD
+                </label>
               </td>
               <td>
-                <button class="btn btn-default"><i class="fas fa-times text-danger"></i></button> 
-                &ensp; SAMPLE
+                <label>
+                  <input type="radio" class="option-input radio" name="example" />SAMPLE
+                </label>
               </td>
               <!-- <td><input type="radio" name=""> &ensp; SAMPLE</td> -->
             </tr>
             <tr>
-              <td class="text-left" colspan="10">TRANSFER QUANTITY TO</td>
+              <td class="text-center" colspan="10">TRANSFER QUANTITY TO</td>
             </tr>
           </tfoot>
         </table>
         <div class="row mx-0 mb-2">         
-           <div class="col-md-4 text-center"><button class="btn btn-info">Previous Item</button></div>
-           <div class="col-md-4 text-center"><button class="btn btn-info">Save</button></div>
-           <div class="col-md-4 text-center"><button class="btn btn-info">Next Item</button></div>
-        </div> 
+           <div class="col-md-4 text-center">
+            <a class="btn btn-info text-white">
+            <i class="fas fa-arrow-left"></i> Previous Item</a>
+          </div>
+           <div class="col-md-4 text-center">
+            <a class="btn btn-info text-white px-5">
+            <i class="fas fa-save"></i> Save</a>
+          </div>
+          <div class="col-md-4 text-center">
+            <a class="btn btn-info text-white">
+            Next Item <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
     </div>
   </div>          
 </div>
