@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <style type="text/css">
     .chklist_table th, .chklist_table td{
         padding: 5px;
@@ -59,43 +60,43 @@
           <thead>
             <tr class="text-left head-1">
               <th colspan="5">Tender Number :</th>
-              <th colspan="7">Meterial No :</th>
+              <th colspan=5>Meterial No :</th>
               <th colspan="5">Date :</th>
             </tr>
             <tr class="text-left head-2">
               <th colspan="5">Tender Name :</th>
-              <th colspan="7">Meterial Description :</th>
-              <th colspan="5">Legend : &ensp;<span><b class="text-danger">A</b>-ACCEPT</span> <span><b class="text-danger">R</b>-REJECT</span></th>
+              <th colspan="5">Meterial Description :</th>
+              <th colspan="5">Legend : &ensp;<span><b><i class="fas fa-check text-success"></i></b>-ACCEPT</span> <span><b><i class="fas fa-times text-danger"></i></b>-REJECT</span></th>
             </tr>
             <tr class="head-3">
-              <th rowspan="3" style="vertical-align: middle;">S.N</th>
-              <th rowspan="3" style="vertical-align: middle;">Grp No.</th>
-              <th rowspan="3" style="vertical-align: middle;">Vendor Name</th>
-              <th rowspan="3" style="vertical-align: middle;">Catalog.No</th>
-              <th rowspan="3" style="vertical-align: middle;">L.C.</th>
-              <th colspan="10">Quantity</th>
-              <th rowspan="3" style="vertical-align: middle;">Remarks</th>
-              <th rowspan="3" style="vertical-align: middle;">Indicator</th>
+              <th width="5%" rowspan="3" style="vertical-align: middle;">S.N</th>
+              <th width="7%" rowspan="3" style="vertical-align: middle;">Grp No.</th>
+              <th width="18%" rowspan="3" style="vertical-align: middle;">Vendor Name</th>
+              <th width="7%" rowspan="3" style="vertical-align: middle;">Catalog.No</th>
+              <th width="5%" rowspan="3" style="vertical-align: middle;">L.C.</th>
+              <th width="24%" colspan="5">Quantity</th>
+              <th width="24%" rowspan="3" style="vertical-align: middle;">Remarks</th>
+              <th width="10%" rowspan="3" style="vertical-align: middle;">Indicator</th>
             </tr>
             <tr class="head-4">
               <!-- <th rowspan="2" style="vertical-align: middle;background: #e7e6e6;color: black"></th>
               <th rowspan="2" style="vertical-align: middle;background: #e7e6e6;color: black"></th> -->
-              <th colspan="2">MOH</th>
-              <th colspan="2">MNGHA</th>
-              <th colspan="2">SFH</th>
-              <th colspan="2">PSMMC</th>
-              <th colspan="2">MODA</th>
+              <th>MOH</th>
+              <th>MNGHA</th>
+              <th>SFH</th>
+              <th>PSMMC</th>
+              <th>MODA</th>
             </tr>
             <tr class="head-5">
-              <th colspan="2">_%</th>
-              <th colspan="2">_%</th>
-              <th colspan="2">_%</th>
-              <th colspan="2">_%</th>
-              <th colspan="2">_%</th>
+              <th>_%</th>
+              <th>_%</th>
+              <th>_%</th>
+              <th>_%</th>
+              <th>_%</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <!-- <tr>
               <td rowspan="2">1</td>
               <td rowspan="2"></td>
               <td rowspan="2">Vendor 1</td>
@@ -125,7 +126,7 @@
               <td>R</td>
               <td><input type="radio" name=""></td>
               <td>R</td>
-            </tr>
+            </tr> -->
 
             <tr>
               <td rowspan="2">2</td>
@@ -133,63 +134,15 @@
               <td rowspan="2">Vendor 2</td>
               <td rowspan="2"></td>
               <td rowspan="2"></td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
+              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
+              <td><button class="btn btn-default"><i class="fas fa-check text-success"></i></button></td>
               <td rowspan="2"></td>
               <td rowspan="2"></td>
-            </tr>
-            <tr>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
             </tr>
 
-            <tr>
-              <td rowspan="2">3</td>
-              <td rowspan="2"></td>
-              <td rowspan="2">Vendor 3</td>
-              <td rowspan="2"></td>
-              <td rowspan="2"></td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
-              <td><input type="radio" name=""></td>
-              <td>A</td>
-              <td rowspan="2"></td>
-              <td rowspan="2"></td>
-            </tr>
-            <tr>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
-              <td><input type="radio" name=""></td>
-              <td>R</td>
-            </tr>
           </tbody>
 
           <tfoot>
@@ -200,10 +153,10 @@
               <td><input type="radio" name=""> &ensp; CANCELLED</td>
               <td><input type="radio" name=""> &ensp; ON HOLD</td>
               <td><input type="radio" name=""> &ensp; SAMPLE</td>
-              <td colspan="8"></td>
+              <td colspan="6"></td>
             </tr>
             <tr>
-              <td class="text-left" colspan="15">TRANSFER QUANTITY TO</td>
+              <td class="text-left" colspan="10">TRANSFER QUANTITY TO</td>
             </tr>
           </tfoot>
         </table> 
