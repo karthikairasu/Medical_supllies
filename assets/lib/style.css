@@ -3,9 +3,9 @@ body{
       transition: color 0.2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
     }
     .chklist_table th, .chklist_table td{
-        padding: 5px;
-        vertical-align: top;
-        border-top: 1px solid #dee2e6;
+      padding: 5px;
+      vertical-align: top;
+      border-top: 1px solid #dee2e6;
     }
     .table thead th, .table tr, .table tbody td{
       border: 1px solid #8e8c8c;
@@ -130,7 +130,7 @@ body{
       margin-right: 0px;
       outline: none;
       position: relative;
-      z-index: 1000;
+      z-index: 100;
     }
     .option-input-2:before{
       height: 40px;
@@ -176,3 +176,22 @@ body{
     .option-input-2.radio::after {
       border-radius: 50%;
     }
+    .chklist_table {
+      height:400px;  
+      overflow:auto;
+    }
+      .chklist_table thead tr:nth-child(1) th{
+        position: sticky;
+        top: 0px;
+        z-index: 999;
+      }
+      .chklist_table thead tr:nth-child(2) th{
+        position: sticky;
+        top: 35px;
+        z-index: 999;
+      }
+      .chklist_table thead tr:nth-child(3) th{
+        position: sticky;
+        top: 70px;
+        z-index: 999;
+      }
