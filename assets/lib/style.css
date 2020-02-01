@@ -27,6 +27,25 @@ body{
       background: #d9e1ee;
       color: black;
     }
+    .chklist_table {
+      height:400px;  
+      overflow:auto;
+    }
+      .chklist_table thead tr:nth-child(1) th{
+        position: sticky;
+        top: 0px;
+        z-index: 999;
+      }
+      .chklist_table thead tr:nth-child(2) th{
+        position: sticky;
+        top: 35px;
+        z-index: 999;
+      }
+      .chklist_table thead tr:nth-child(3) th{
+        position: sticky;
+        top: 70px;
+        z-index: 999;
+      }
     /*=====Radio button=====*/
     *{font-family: 'Roboto', sans-serif;}
     @keyframes click-wave {
@@ -176,22 +195,4 @@ body{
     .option-input-2.radio::after {
       border-radius: 50%;
     }
-    .chklist_table {
-      height:400px;  
-      overflow:auto;
-    }
-      .chklist_table thead tr:nth-child(1) th{
-        position: sticky;
-        top: 0px;
-        z-index: 999;
-      }
-      .chklist_table thead tr:nth-child(2) th{
-        position: sticky;
-        top: 35px;
-        z-index: 999;
-      }
-      .chklist_table thead tr:nth-child(3) th{
-        position: sticky;
-        top: 70px;
-        z-index: 999;
-      }
+    
