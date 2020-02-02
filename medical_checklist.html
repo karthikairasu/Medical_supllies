@@ -480,6 +480,35 @@
     </div>
   </div>          
 </div>
+<script>
+//   var $self;
 
+// $('.chklist_table input[type=radio]').on('click', function() {
+//   $self = $(this);
+//   if ( $self.hasClass('is-checked') ) {
+//     $self.prop('checked', false).removeClass('is-checked');
+//   } else {
+//     $self.addClass('is-checked');
+//   }
+// });
+// Toggle radio buttons by clicking on the label or radio itself
+$('label:has(.option-input-2)').on('mousedown', function(e){
+  var radio = $(this).find('.option-input-2');
+  var wasChecked = radio.prop('checked');
+  radio[0].turnOff = wasChecked;
+  radio.prop('checked', !wasChecked);
+});
+
+$('label:has(.option-input-2)').on('click', function(e){
+  var radio = $(this).find('.option-input-2');
+  radio.prop('checked', !radio[0].turnOff);
+  radio[0]['turning-off'] = !radio[0].turnOff;
+});
+
+</script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.js"
+  integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+  crossorigin="anonymous"></script>
 </body>
 </html>
