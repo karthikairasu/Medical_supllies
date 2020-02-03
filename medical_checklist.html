@@ -473,58 +473,59 @@
         </tbody>
       </table> 
       </div>
-
-      <table class="table table-bordered text-center mb-0" style="background: #f2f2f2;font-size: 13px">
-        <tfoot>
-          <tr>
-            <td rowspan="2" colspan="2" style="vertical-align: middle;"><b>NUPCO REMARKS</b></td>
-            <td>
-              <label>
-                <input type="radio" class="option-input radio" name="example" checked />AWARDED
-              </label>
-            </td>
-            <td>
-              <label>
-                <input type="radio" class="option-input radio" name="example" />SPLIT
-              </label>
-             </td>
-            <td>
-              <label>
-                <input type="radio" class="option-input radio" name="example" />CANCELLED
-              </label>
-            </td>
-            <td>
-              <label>
-                <input type="radio" class="option-input radio" name="example" />ON HOLD
-              </label>
-            </td>
-            <td>
-              <label>
-                <input type="radio" class="option-input radio" name="example" />SAMPLE
-              </label>
-            </td>
-            <!-- <td><input type="radio" name=""> &ensp; SAMPLE</td> -->
-          </tr>
-          <tr>
-            <td class="text-center" colspan="10">TRANSFER QUANTITY TO : <input type="text" name='' class="border-0" style="padding:.375rem .75rem;" value="1"></td>
-          </tr>
-        </tfoot>
-      </table>
-      <div class="row mx-0 ml-auto">   
-        <p class="mb-0" style="font-size: 14px">Showing 1 to 30 of 30 entries</p>
-      </div>
-      <div class="row mx-0 my-1">         
-        <div class="col-md-4 text-center py-1">
-          <a class="btn btn-info text-white">
-          <i class="fas fa-arrow-left"></i> Previous Item</a>
+      <div class="col-md-12 bg-white" style="position:absolute;bottom:0;left:0;z-index:100;">
+        <table class="table table-bordered text-center mb-0" style="background: #f2f2f2;font-size: 13px">
+          <tfoot>
+            <tr>
+              <td rowspan="2" colspan="2" style="vertical-align: middle;"><b>NUPCO REMARKS</b></td>
+              <td>
+                <label>
+                  <input type="radio" class="option-input radio" name="example" checked />AWARDED
+                </label>
+              </td>
+              <td>
+                <label>
+                  <input type="radio" class="option-input radio" name="example" />SPLIT
+                </label>
+               </td>
+              <td>
+                <label>
+                  <input type="radio" class="option-input radio" name="example" />CANCELLED
+                </label>
+              </td>
+              <td>
+                <label>
+                  <input type="radio" class="option-input radio" name="example" />ON HOLD
+                </label>
+              </td>
+              <td>
+                <label>
+                  <input type="radio" class="option-input radio" name="example" />SAMPLE
+                </label>
+              </td>
+              <!-- <td><input type="radio" name=""> &ensp; SAMPLE</td> -->
+            </tr>
+            <tr>
+              <td class="text-center" colspan="10">TRANSFER QUANTITY TO : <input type="text" name='' class="border-0" style="padding:.375rem .75rem;" value="1"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <div class="col-md-12 mx-0 text-right">   
+          <p class="mb-0" style="font-size: 14px">Showing 1 to 30 of 30 entries</p>
         </div>
-         <div class="col-md-4 text-center py-1">
-          <a class="btn btn-info text-white px-5">
-          <i class="fas fa-save"></i> Save</a>
-        </div>
-        <div class="col-md-4 text-center py-1">
-          <a class="btn btn-info text-white">
-          Next Item <i class="fas fa-arrow-right"></i></a>
+        <div class="row mx-0 my-1">         
+          <div class="col-md-4 text-center py-1">
+            <a class="btn btn-info text-white">
+            <i class="fas fa-arrow-left"></i> Previous Item</a>
+          </div>
+           <div class="col-md-4 text-center py-1">
+            <a class="btn btn-info text-white px-5">
+            <i class="fas fa-save"></i> Save</a>
+          </div>
+          <div class="col-md-4 text-center py-1">
+            <a class="btn btn-info text-white">
+            Next Item <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -542,15 +543,15 @@
 //   }
 // });
 // Toggle radio buttons by clicking on the label or radio itself
-$('label:has(.option-input-2)').on('mousedown', function(e){
-  var radio = $(this).find('.option-input-2');
+$('label:has(input[type=radio])').on('mousedown', function(e){
+  var radio = $(this).find('input[type=radio]');
   var wasChecked = radio.prop('checked');
   radio[0].turnOff = wasChecked;
   radio.prop('checked', !wasChecked);
 });
 
-$('label:has(.option-input-2)').on('click', function(e){
-  var radio = $(this).find('.option-input-2');
+$('label:has(input[type=radio])').on('click', function(e){
+  var radio = $(this).find('input[type=radio]');
   radio.prop('checked', !radio[0].turnOff);
   radio[0]['turning-off'] = !radio[0].turnOff;
 });

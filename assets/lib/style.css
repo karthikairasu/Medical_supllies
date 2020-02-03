@@ -28,24 +28,25 @@ body{
       color: black;
     }
     .chklist_table {
-      height:50vh;  
-      overflow:auto;
+      height: 330px;
+      overflow: auto;
+      margin-bottom: 165px!important;
     }
-      .chklist_table thead tr:nth-child(1) th{
-        position: sticky;
-        top: 0px;
-        z-index: 999;
-      }
-      .chklist_table thead tr:nth-child(2) th{
-        position: sticky;
-        top: 35px;
-        z-index: 999;
-      }
-      .chklist_table thead tr:nth-child(3) th{
-        position: sticky;
-        top: 70px;
-        z-index: 999;
-      }
+    .chklist_table thead tr:nth-child(1) th{
+      position: sticky;
+      top: 0px;
+      z-index: 999;
+    }
+    .chklist_table thead tr:nth-child(2) th{
+      position: sticky;
+      top: 35px;
+      z-index: 999;
+    }
+    .chklist_table thead tr:nth-child(3) th{
+      position: sticky;
+      top: 70px;
+      z-index: 999;
+    }
     /*=====Radio button=====*/
     *{font-family: 'Roboto', sans-serif;}
     @keyframes click-wave {
