@@ -16,7 +16,7 @@ body{
     }
     .head-1 th, .head-2 th{
         padding: 3px;
-        vertical-align: top;
+        vertical-align: middle;
         border-top: 1px solid #dee2e6;
     }
     .head-3 th, .head-4 th{
@@ -36,16 +36,19 @@ body{
       position: sticky;
       top: 0px;
       z-index: 999;
+      font-size: 13px;
     }
     .chklist_table thead tr:nth-child(2) th{
       position: sticky;
-      top: 35px;
+      top: 30px;
       z-index: 999;
+      font-size: 13px;
     }
     .chklist_table thead tr:nth-child(3) th{
       position: sticky;
-      top: 70px;
+      top: 60px;
       z-index: 999;
+      font-size: 13px;
     }
     /*=====Radio button=====*/
     *{font-family: 'Roboto', sans-serif;}
