@@ -30,7 +30,7 @@ body{
     .chklist_table {
       height: 330px;
       overflow: auto;
-      margin-bottom: 165px!important;
+      margin-bottom: 150px!important;
     }
     .chklist_table thead tr:nth-child(1) th{
       position: sticky;
