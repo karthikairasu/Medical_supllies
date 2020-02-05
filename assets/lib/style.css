@@ -9,6 +9,7 @@ body{
     }
     .table thead th, .table tr, .table tbody td{
       border: 1px solid #8e8c8c;
+      vertical-align: middle;
     }
     .table tfoot td{
       border: 1px solid #8e8c8c;
@@ -25,6 +26,10 @@ body{
     }
     .head-5 th{
       background: #d9e1ee;
+      color: black;
+    }
+    .head-6 th{
+      background: #bbbdbf;
       color: black;
     }
     .chklist_table {
@@ -47,6 +52,12 @@ body{
     .chklist_table thead tr:nth-child(3) th{
       position: sticky;
       top: 60px;
+      z-index: 999;
+      font-size: 13px;
+    }
+    .chklist_table thead tr:nth-child(4) th{
+      position: sticky;
+      top: 90px;
       z-index: 999;
       font-size: 13px;
     }
