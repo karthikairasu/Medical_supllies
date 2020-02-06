@@ -61,6 +61,15 @@ body{
       z-index: 999;
       font-size: 13px;
     }
+    .search_tbl td, .search_tbl th {
+        padding:2px 2px; 
+        vertical-align: middle;
+        border-top: none;
+    }
+    .search_tbl thead th, .search_tbl tr, .search_tbl tbody td {
+        border: none;
+        vertical-align: middle;
+    }
     /*=====Radio button=====*/
     *{font-family: 'Roboto', sans-serif;}
     @keyframes click-wave {

@@ -22,6 +22,26 @@
         <img class="text-left" src="assets/images/images.png" height="47px" width="68px">
         <b>Checklist for Medical Supplies</b>
       </h4>
+      <form method="POST" action="">
+      <table class="table table-bordered search_tbl border-0 mb-0">
+        <thead class="border-0">
+          <tr>
+            <th width="70%">
+              <input type="text" required class="form-control" name="meterial_no" placeholder="Enter Serial Number" value="" style="border: 1px solid #218ec9;">
+            </th>
+            <th width="10%">
+              <button type="submit" class="btn btn-info w-100" name="search" >Search</button>
+            </th>
+            <th width="10%">
+              <a href="<?=base_url('web');?>" class="btn btn-info w-100" style="background: #218ec9">Reset</a>
+            </th>
+            <th width="10%">
+              <a href="javascript:void(0)" class="btn btn-success w-100" onclick="fnExcelReport()">Download</a>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </form>
       <table class="table table-bordered mb-0 table_1">
         <thead>
           <tr class="text-left head-1">
