@@ -118,7 +118,7 @@ body{
       margin-right: 0.5rem;
       outline: none;
       position: relative;
-      z-index: 1000;
+      z-index: 100;
     }
     .option-input:hover {
       background: #9faab7;

@@ -73,21 +73,7 @@
             <th width="18%" rowspan="4" style="vertical-align: middle;">Vendor Name</th>
             <th width="7%" rowspan="4" style="vertical-align: middle;">Catalog.No</th>
             <th width="5%" rowspan="4" style="vertical-align: middle;">L.C.</th>
-            <th width="24%" colspan="2">Quantity</th>
-          </tr>
-          <tr class="head-4">
-            <!-- <th rowspan="2" style="vertical-align: middle;background: #e7e6e6;color: black"></th>
-            <th rowspan="2" style="vertical-align: middle;background: #e7e6e6;color: black"></th> -->
-            <th style="padding: 5px 7px">MOH</th>
-            <th>MNGHA</th>
-          </tr>
-          <tr class="head-5">
-            <th>_%</th>
-            <th>_%</th>
-          </tr>
-          <tr class="head-6">
-            <th style="padding: 1px 2px"><label><input type="checkbox" class="allmoh"></label></th>
-            <th style="padding: 1px 2px"><label><input type="checkbox" class="allmngha"></label></th>
+            <th width="24%" rowspan="4" style="vertical-align: middle;" colspan="2">Advisor</th>
           </tr>
         </thead>
 
@@ -132,31 +118,15 @@
             <td></td>
             <td>
               <label>
-                <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
-              </label>
+                <input type="radio" class="option-input radio first" name="first"/>
+                <b class="" style="color:#0bd013;">Yes</b>
+              </label>  
             </td>
             <td>
               <label>
-                <input type="checkbox" class="option-input-2 checkbox mngha" name="mngha"/>
-              </label>
-            </td>
-          </tr>
-
-          <tr>
-            <td>51</td>
-            <td></td>
-            <td>Vendor 1</td>
-            <td></td>
-            <td></td>
-            <td>
-              <label>
-                <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
-              </label>
-            </td>
-            <td>
-              <label>
-                <input type="checkbox" class="option-input-2 checkbox mngha" name="mngha"/>
-              </label>
+                <input type="radio" class="option-input radio first" name="first"/>
+                <b class="" style="color:red;">No</b>
+              </label> 
             </td>
           </tr>
 
@@ -168,13 +138,15 @@
             <td></td>
             <td>
               <label>
-                <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
-              </label>
+                <input type="radio" class="option-input radio second" name="second"/>
+                <b class="" style="color:#0bd013;">Yes</b>
+              </label>  
             </td>
             <td>
               <label>
-                <input type="checkbox" class="option-input-2 checkbox mngha" name="mngha"/>
-              </label>
+                <input type="radio" class="option-input radio second" name="second"/>
+                <b class="" style="color:red;">No</b>
+              </label> 
             </td>
           </tr>
 
@@ -186,13 +158,35 @@
             <td></td>
             <td>
               <label>
-                <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
-              </label>
+                <input type="radio" class="option-input radio third" name="third"/>
+                <b class="" style="color:#0bd013;">Yes</b>
+              </label>  
             </td>
             <td>
               <label>
-                <input type="checkbox" class="option-input-2 checkbox mngha" name="mngha"/>
-              </label>
+                <input type="radio" class="option-input radio third" name="third"/>
+                <b class="" style="color:red;">No</b>
+              </label> 
+            </td>
+          </tr>
+
+          <tr>
+            <td>51</td>
+            <td></td>
+            <td>Vendor 1</td>
+            <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="radio" class="option-input radio fourth" name="fourth"/>
+                <b class="" style="color:#0bd013;">Yes</b>
+              </label>  
+            </td>
+            <td>
+              <label>
+                <input type="radio" class="option-input radio fourth" name="fourth"/>
+                <b class="" style="color:red;">No</b>
+              </label> 
             </td>
           </tr>
 
