@@ -88,7 +88,7 @@
                   <label class=""><b>From</b></label>
                 </div>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="datepicker" name="" placeholder="" required>
+                  <input type="text" class="form-control" id="datepicker" name="" placeholder="10" required>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@
                   <label class=""><b>To</b></label>
                 </div>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control" id="datepicker2" name="" placeholder="" required>
+                  <input type="text" class="form-control" id="datepicker2" name="" placeholder="20" required>
                 </div>
               </div>
             </div>
@@ -292,5 +292,15 @@
     </div>
   </div>          
 </div>
+<script>
+      $('#datepicker').datepicker({
+          uiLibrary: 'bootstrap4'
+      });
+  </script>
+  <script>
+      $('#datepicker2').datepicker({
+          uiLibrary: 'bootstrap4'
+      });
+  </script>
 </body>
 </html>
