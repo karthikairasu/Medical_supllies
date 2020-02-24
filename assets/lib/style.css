@@ -280,13 +280,13 @@ body{
       display: none;
       float: left;
       min-width: 10rem;
-      padding: 0px 5px;
+      padding: 0px 5px 5px 5px;
       margin: .125rem 0 0;
       font-size: 1rem;
       color: #212529;
       text-align: left;
       list-style: none;
-      background-color: #e0e0e0;
+      background-color: #a7a9ac;
       background-clip: padding-box;
       border: 1px solid rgba(0,0,0,.15);
       border-radius: .25rem;
@@ -296,9 +296,12 @@ body{
     }
     .drop-tbl thead tr:nth-child(1) th{
       position: sticky;
-      top: 0px;
+      top: -1px;
       z-index: 999;
       font-size: 13px;
       background: #40e0d0;
-      outline: 1px solid #8e8c8c;
+      outline: 1px solid #c8c9cc;
+    }
+    .drop-tbl th, .drop-tbl td{
+      border: 1px solid #c8c9cc!important;
     }

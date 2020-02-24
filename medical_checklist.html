@@ -37,7 +37,7 @@
               <button type="submit" class="btn btn-info w-100" name="search" >Search</button>
             </th>
             <th width="10%">
-              <button type="submit" class="btn btn-outline-info w-100" name="" disabled><i class="fas fa-user"></i> Supplies</button>
+              <button type="submit" class="btn btn-outline-primary w-100" name="" disabled><i class="fas fa-user"></i> Supplies</button>
             </th>
             <th width="10%">
               <a href="<?=base_url('web');?>" class="btn btn-info w-100" style="background: #218ec9">Reset</a>
@@ -78,10 +78,13 @@
             <th width="5%" rowspan="5" style="vertical-align: middle;">S.N</th>
             <th width="7%" rowspan="5" style="vertical-align: middle;">Grp No.</th>
             <th width="18%" rowspan="5" style="vertical-align: middle;">Vendor Name</th>
+            <th width="7%" rowspan="5" style="vertical-align: middle;">Manufacturer</th>
             <th width="7%" rowspan="5" style="vertical-align: middle;">Catalog.No</th>
             <th width="5%" rowspan="5" style="vertical-align: middle;">L.C.</th>
+            <th width="5%" rowspan="5" style="vertical-align: middle;">Split</th>
             <th width="24%" colspan="6">Quantity</th>
-            <th width="24%" rowspan="5" style="vertical-align: middle;">Remarks</th>
+            <th width="17%" rowspan="5" style="vertical-align: middle;">Remarks</th>
+            <th width="7%" rowspan="5" style="vertical-align: middle;">Advisory Feedback</th>
             <th width="10%" rowspan="5" style="vertical-align: middle;">Indicator</th>
           </tr>
           <tr class="head-4">
@@ -114,16 +117,16 @@
             <th class="p-0" colspan="6"><div class="dropdown">
               <button type="button" class="btn btn-warning btn-sm p-0 w-100 dropdown-toggle" data-toggle="dropdown">Transfer Quantity</button>
               <div class="dropdown-menu">
-                <table class="table table-bordered drop-tbl bg-white mb-0">
+                <table class="table table-bordered drop-tbl text-center bg-white mb-0">
                   <thead>
                     <tr>
-                     <th>S.no</th>
-                     <th>moh</th>
-                     <th>mngha</th>
-                     <th>sfh</th>
-                     <th>psmmc</th>
-                     <th>moda</th>
-                     <th>dmu</th>
+                     <th>S.No</th>
+                     <th>MOH</th>
+                     <th>MNGHA</th>
+                     <th>SFH</th>
+                     <th>PSMMC</th>
+                     <th>MODA</th>
+                     <th>DMU</th>
                    </tr>
                   </thead>
                   <tbody>
@@ -172,6 +175,17 @@
                       <td>1</td>
                     </tr>
                   </tbody>
+                  <tfoot>
+                    <tr style="background: #002060;color: white;">
+                      <th>75</th>
+                      <th>5</th>
+                      <th>5</th>
+                      <th>5</th>
+                      <th>5</th>
+                      <th>5</th>
+                      <th>5</th>
+                    </tr>
+                  </tfoot>
                 </table>
               </div>
             </div>
@@ -211,13 +225,19 @@
             <td><input type="radio" name=""></td>
             <td>R</td>
           </tr> -->
-
+        
           <tr>
             <td>51</td>
             <td></td>
             <td>Vendor 1</td>
             <td></td>
             <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" class="option-input-2 checkbox" name=""/>
+              </label>
+            </td>
             <td>
               <label>
                 <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
@@ -248,6 +268,9 @@
                 <input type="checkbox" class="option-input-2 checkbox dmu" name="dmu"/>
               </label>
             </td>
+            <td>
+              <textarea type="text" name="" class="form-control h-100 border-0"></textarea>
+            </td>
             <td></td>
             <td></td>
           </tr>
@@ -258,6 +281,12 @@
             <td>Vendor 2</td>
             <td></td>
             <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" class="option-input-2 checkbox" name=""/>
+              </label>
+            </td>
             <td>
               <label>
                 <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
@@ -298,6 +327,12 @@
             <td>Vendor 3</td>
             <td></td>
             <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" class="option-input-2 checkbox" name=""/>
+              </label>
+            </td>
             <td>
               <label>
                 <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
@@ -328,6 +363,7 @@
                 <input type="checkbox" class="option-input-2 checkbox dmu" name="dmu"/>
               </label>
             </td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -338,6 +374,12 @@
             <td>Vendor 4</td>
             <td></td>
             <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" class="option-input-2 checkbox" name=""/>
+              </label>
+            </td>
             <td>
               <label>
                 <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
@@ -368,6 +410,7 @@
                 <input type="checkbox" class="option-input-2 checkbox dmu" name="dmu"/>
               </label>
             </td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -378,6 +421,12 @@
             <td>Vendor 5</td>
             <td></td>
             <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" class="option-input-2 checkbox" name=""/>
+              </label>
+            </td>
             <td>
               <label>
                 <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
@@ -408,6 +457,7 @@
                 <input type="checkbox" class="option-input-2 checkbox dmu" name="dmu"/>
               </label>
             </td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -418,6 +468,12 @@
             <td>Vendor 5</td>
             <td></td>
             <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" class="option-input-2 checkbox" name=""/>
+              </label>
+            </td>
             <td>
               <label>
                 <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
@@ -448,6 +504,7 @@
                 <input type="checkbox" class="option-input-2 checkbox dmu" name="dmu"/>
               </label>
             </td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -458,6 +515,12 @@
             <td>Vendor 5</td>
             <td></td>
             <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" class="option-input-2 checkbox" name=""/>
+              </label>
+            </td>
             <td>
               <label>
                 <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
@@ -488,6 +551,7 @@
                 <input type="checkbox" class="option-input-2 checkbox dmu" name="dmu"/>
               </label>
             </td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -498,6 +562,12 @@
             <td>Vendor 5 Vendor 5 Vendor 5 Vendor 5 Vendor 5</td>
             <td></td>
             <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" class="option-input-2 checkbox" name=""/>
+              </label>
+            </td>
             <td>
               <label>
                 <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
@@ -528,6 +598,7 @@
                 <input type="checkbox" class="option-input-2 checkbox dmu" name="dmu"/>
               </label>
             </td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -538,6 +609,12 @@
             <td>Vendor 5</td>
             <td></td>
             <td></td>
+            <td></td>
+            <td>
+              <label>
+                <input type="checkbox" class="option-input-2 checkbox" name=""/>
+              </label>
+            </td>
             <td>
               <label>
                 <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
@@ -568,6 +645,7 @@
                 <input type="checkbox" class="option-input-2 checkbox dmu" name="dmu"/>
               </label>
             </td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
@@ -588,11 +666,6 @@
               </td>
               <td>
                 <label>
-                  <input type="radio" class="option-input radio" name="example" />SPLIT
-                </label>
-               </td>
-              <td>
-                <label>
                   <input type="radio" class="option-input radio" name="example" />CANCELLED
                 </label>
               </td>
@@ -606,6 +679,11 @@
                   <input type="radio" class="option-input radio" name="example" />SAMPLE
                 </label>
               </td>
+              <td>
+                <label>
+                  <input type="radio" class="option-input radio" name="example" />REVIEW LETTER
+                </label>
+               </td>
               <!-- <td><input type="radio" name=""> &ensp; SAMPLE</td> -->
             </tr>
             <tr>
