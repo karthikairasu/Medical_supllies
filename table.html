@@ -35,7 +35,7 @@
     colorSet: "greenShades",
 
     title: {
-      text: "Quotation Radio Report"
+      text: "Quotation Ratio Report"
     },
     subtitles: [{
       text: ""
@@ -50,10 +50,10 @@
       indexLabelFontSize: 16,
       indexLabel: "{label} - {y}",
       dataPoints: [
-        { y: 200, label: "No Quotation" },
+        { y: 200, label: "No Quotations" },
         { y: 50, label: "One Quotation" },
         { y: 288, label: "Two Quotation" },
-        { y: 1200, label: "There and More" }
+        { y: 1200, label: "Three and More" }
       ]
     }]
   };
@@ -90,8 +90,8 @@
       indexLabelFontSize: 16,
       indexLabel: "{label} - {y}",
       dataPoints: [
-        { y: 200, label: "Awarderd" },
-        { y: 50, label: "Canceled" },
+        { y: 200, label: "Awarded" },
+        { y: 50, label: "Cancelled" },
         { y: 288, label: "On Hold" },
         { y: 300, label: "Sample" },
         { y: 670, label: "Review Letter" },
@@ -131,8 +131,8 @@
       indexLabel: "{label} - {y}",
       dataPoints: [
         { y: 294, label: "LC" },
-        { y: 206, label: "Awarderd" },
-        { y: 88, label: "Canceled" }
+        { y: 206, label: "Awarded" },
+        { y: 88, label: "Cancelled" }
       ]
     }]
   };
@@ -143,7 +143,7 @@
 </head>
 <body>
   <h2 class="text-center table-success pb-3" style="background: ">
-    <b style="text-shadow: 0 1px #808d93,-1px 0 #cdd2d5,-1px 2px #808d93,-2px 1px #cdd2d5,-2px 3px #808d93,-3px 2px #cdd2d5,-3px 4px #808d93,-4px 3px #cdd2d5,-4px 5px #808d93,-5px 4px #cdd2d5,-5px 6px #808d93,-6px 5px #cdd2d5,-6px 7px #808d93,-7px 6px #cdd2d5,-7px 8px #808d93,-8px 7px #cdd2d5;">Quotation Radio Report</b>
+    <b style="text-shadow: 0 1px #808d93,-1px 0 #cdd2d5,-1px 2px #808d93,-2px 1px #cdd2d5,-2px 3px #808d93,-3px 2px #cdd2d5,-3px 4px #808d93,-4px 3px #cdd2d5,-4px 5px #808d93,-5px 4px #cdd2d5,-5px 6px #808d93,-6px 5px #cdd2d5,-6px 7px #808d93,-7px 6px #cdd2d5,-7px 8px #808d93,-8px 7px #cdd2d5;">Quotation Ratio Report</b>
   </h2>
    <div class="table table-responsive bg-white mb-0">
         <table class="table table-bordered pie-tbl col-4 mx-auto">
@@ -153,7 +153,7 @@
           </thead>
           <tbody>
             <tr>
-               <td>No Quotation</td>
+               <td>No Quotations</td>
                <td>200</td>
             </tr>
             <tr>
@@ -178,7 +178,7 @@
         </table> 
       </div>
 
-      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+      <div class="my-3" id="chartContainer" style="height: 300px; width: 100%;"></div>
       <div class="">
         <h2 class="text-center table-danger pb-3">
           <b style="text-shadow: 0 1px #808d93,-1px 0 #cdd2d5,-1px 2px #808d93,-2px 1px #cdd2d5,-2px 3px #808d93,-3px 2px #cdd2d5,-3px 4px #808d93,-4px 3px #cdd2d5,-4px 5px #808d93,-5px 4px #cdd2d5,-5px 6px #808d93,-6px 5px #cdd2d5,-6px 7px #808d93,-7px 6px #cdd2d5,-7px 8px #808d93,-8px 7px #cdd2d5;">Items Report</b>
@@ -191,11 +191,11 @@
           </thead>
           <tbody>
             <tr>
-               <td>Awarderd</td>
+               <td>Awarded</td>
                <td>200</td>
             </tr>
             <tr>
-              <td>Canceled</td>
+              <td>Cancelled</td>
               <td>50</td>
             </tr>
             <tr>
@@ -241,19 +241,19 @@
                <td>100%</td>
             </tr>
             <tr>
-               <td>Awarderd</td>
+               <td>Awarded</td>
                <td>206</td>
                <td>70%</td>
             </tr>
             <tr>
-              <td>Canceled</td>
+              <td>Cancelled</td>
               <td>88</td>
               <td>30%</td>
             </tr>
           </tbody>
         </table> 
       </div>
-      <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+      <div class="my-3" id="chartContainer3" style="height: 300px; width: 100%;"></div>
   <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 </body>
