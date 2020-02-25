@@ -9,18 +9,31 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="assets/lib/style.css">
-  <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
   <style type="text/css">
     .canvasjs-chart-credit{
       display: none;
+    }
+    .pie-tbl th, .pie-tbl td{
+      padding: 2px 3px;
+      text-align: center;
     }
   </style>
   <script>
   window.onload = function () {
 
+    CanvasJS.addColorSet("greenShades",
+                [//colorSet Array
+
+                "#77BB00",
+                "#FF9923", 
+                "#00AAFF",              
+                "#0054AC"                
+                ]);
+
   var options = {
+
+    colorSet: "greenShades",
+
     title: {
       text: "Quotation Radio Report"
     },
@@ -31,7 +44,7 @@
     data: [{
       type: "pie",
       startAngle: 0,
-      toolTipContent: "<b>{label}</b>: {y}%",
+      toolTipContent: "<b>{label}</b>: {y}",
       showInLegend: "true",
       legendText: "{label}",
       indexLabelFontSize: 16,
@@ -45,27 +58,204 @@
     }]
   };
   $("#chartContainer").CanvasJSChart(options);
+  // ======Items chart========//
+  CanvasJS.addColorSet("greenShades2",
+                [//colorSet Array
+
+                "#AC92EC",
+                "#48CFAD",
+                "#FFCE54",
+                "#A0D468", 
+                "#5D9CEC",              
+                "#ED5565"              
+                ]);
+
+  var options = {
+
+    colorSet: "greenShades2",
+
+    title: {
+      text: "Items Report"
+    },
+    subtitles: [{
+      text: ""
+    }],
+    animationEnabled: true,
+    data: [{
+      type: "pie",
+      startAngle: 0,
+      toolTipContent: "<b>{label}</b>: {y}",
+      showInLegend: "true",
+      legendText: "{label}",
+      indexLabelFontSize: 16,
+      indexLabel: "{label} - {y}",
+      dataPoints: [
+        { y: 200, label: "Awarderd" },
+        { y: 50, label: "Canceled" },
+        { y: 288, label: "On Hold" },
+        { y: 300, label: "Sample" },
+        { y: 670, label: "Review Letter" },
+        { y: 750, label: "Not Reviewed Yet" }
+      ]
+    }]
+  };
+  $("#chartContainer2").CanvasJSChart(options);
+
+  // ======LC Acceptance Rate========//
+  CanvasJS.addColorSet("greenShades3",
+                [//colorSet Array
+
+                "#20CBC2",
+                "#F9BB04",             
+                "#F97B17"              
+                ]);
+
+  var options = {
+
+    colorSet: "greenShades3",
+
+    title: {
+      text: "LC Acceptance"
+    },
+    subtitles: [{
+      text: ""
+    }],
+    animationEnabled: true,
+    data: [{
+      type: "pie",
+      startAngle: 0,
+      toolTipContent: "<b>{label}</b>: {y}",
+      showInLegend: "true",
+      legendText: "{label}",
+      indexLabelFontSize: 16,
+      indexLabel: "{label} - {y}",
+      dataPoints: [
+        { y: 294, label: "LC" },
+        { y: 206, label: "Awarderd" },
+        { y: 88, label: "Canceled" }
+      ]
+    }]
+  };
+  $("#chartContainer3").CanvasJSChart(options);
 
   }
   </script>
 </head>
-<body style="background: url(assets/images/bg-body.png)">
+<body>
+  <h2 class="text-center table-success pb-3" style="background: ">
+    <b style="text-shadow: 0 1px #808d93,-1px 0 #cdd2d5,-1px 2px #808d93,-2px 1px #cdd2d5,-2px 3px #808d93,-3px 2px #cdd2d5,-3px 4px #808d93,-4px 3px #cdd2d5,-4px 5px #808d93,-5px 4px #cdd2d5,-5px 6px #808d93,-6px 5px #cdd2d5,-6px 7px #808d93,-7px 6px #cdd2d5,-7px 8px #808d93,-8px 7px #cdd2d5;">Quotation Radio Report</b>
+  </h2>
+   <div class="table table-responsive bg-white mb-0">
+        <table class="table table-bordered pie-tbl col-4 mx-auto">
+          <thead class="table-info">
+            <th>Items with</th>
+            <th>Count</th>
+          </thead>
+          <tbody>
+            <tr>
+               <td>No Quotation</td>
+               <td>200</td>
+            </tr>
+            <tr>
+              <td>One Quotation</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>Two Quotation</td>
+              <td>288</td>
+            </tr>
+            <tr>
+              <td>Three and More</td>
+              <td>1200</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              <th>1893</th>
+            </tr>
+          </tfoot>
+        </table> 
+      </div>
 
-   <div class="table table-responsive border-bottom mb-0">
-        <table class="table table-bordered text-center chklist_table" style="margin-bottom: 50px!important">
-          <thead>
+      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+      <div class="">
+        <h2 class="text-center table-danger pb-3">
+          <b style="text-shadow: 0 1px #808d93,-1px 0 #cdd2d5,-1px 2px #808d93,-2px 1px #cdd2d5,-2px 3px #808d93,-3px 2px #cdd2d5,-3px 4px #808d93,-4px 3px #cdd2d5,-4px 5px #808d93,-5px 4px #cdd2d5,-5px 6px #808d93,-6px 5px #cdd2d5,-6px 7px #808d93,-7px 6px #cdd2d5,-7px 8px #808d93,-8px 7px #cdd2d5;">Items Report</b>
+        </h2>
+        <div class="table table-responsive mb-0">
+        <table class="table table-bordered pie-tbl col-4 mx-auto">
+          <thead class="table-info">
+            <th>Items with</th>
+            <th>Count</th>
+          </thead>
+          <tbody>
+            <tr>
+               <td>Awarderd</td>
+               <td>200</td>
+            </tr>
+            <tr>
+              <td>Canceled</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>On Hold</td>
+              <td>288</td>
+            </tr>
+            <tr>
+              <td>Sample</td>
+              <td>300</td>
+            </tr>
+            <tr>
+              <td>Review Letter</td>
+              <td>670</td>
+            </tr>
+            <tr>
+              <td>Not Reviewed Yet</td>
+              <td>750</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th>Total</th>
+              <th>2893</th>
+            </tr>
+          </tfoot>
+        </table> 
+      </div>
+        <div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+      </div>
+
+      <h2 class="text-center pb-3 table-warning">
+        <b style="text-shadow: 0 1px #808d93,-1px 0 #cdd2d5,-1px 2px #808d93,-2px 1px #cdd2d5,-2px 3px #808d93,-3px 2px #cdd2d5,-3px 4px #808d93,-4px 3px #cdd2d5,-4px 5px #808d93,-5px 4px #cdd2d5,-5px 6px #808d93,-6px 5px #cdd2d5,-6px 7px #808d93,-7px 6px #cdd2d5,-7px 8px #808d93,-8px 7px #cdd2d5;">LC Acceptance Rate</b>
+      </h2>
+      <div class="table table-responsive mb-0">
+        <table class="table table-bordered pie-tbl col-4 mx-auto">
+          <thead class="table-info">
             
           </thead>
-
           <tbody>
-
-
+            <tr>
+               <td>LC</td>
+               <td>294</td>
+               <td>100%</td>
+            </tr>
+            <tr>
+               <td>Awarderd</td>
+               <td>206</td>
+               <td>70%</td>
+            </tr>
+            <tr>
+              <td>Canceled</td>
+              <td>88</td>
+              <td>30%</td>
+            </tr>
           </tbody>
         </table> 
       </div>
-      <div id="chartContainer" style="height: 300px; width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+      <div id="chartContainer3" style="height: 300px; width: 100%;"></div>
+  <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 </body>
 </html>
 
