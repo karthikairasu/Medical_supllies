@@ -143,18 +143,18 @@
       </div>
       
       </form>      
-      <div  class="table table-responsive border-bottom mb-0">
-      <table id="exportTable" class="table table-bordered text-center chklist_table" style="margin-bottom: 50px!important">
+      <div class="table table-responsive border-bottom mb-0">
+      <table class="table table-bordered text-center chklist_table" style="margin-bottom: 50px!important">
         <thead>
           <tr class="head-3">
-            <th width="8%" rowspan="2" style="vertical-align: middle;">Serial_No</th>
-            <th width="8%" rowspan="2" style="vertical-align: middle;">Material_No</th>
+            <th width="8%" rowspan="2" style="vertical-align: middle;">Serial.No</th>
+            <th width="8%" rowspan="2" style="vertical-align: middle;">Material No</th>
             <th width="8%" rowspan="2" style="vertical-align: middle;">Vendor</th>
             <th width="8%" rowspan="2" style="vertical-align: middle;">Manufacturer</th>
-            <th width="10%" rowspan="2" style="vertical-align: middle;">L_C</th>
-            <th width="10%" rowspan="2" style="vertical-align: middle;">Quantity</th>
-            <th width="10%" rowspan="" colspan="6" style="vertical-align: middle;">Customer_Selection</th>
-            <th width="10%" rowspan="" colspan="5" style="vertical-align: middle;">Nupco_Remarks</th>
+            <th width="10%" rowspan="2" style="vertical-align: middle;">L.C</th>
+            <th width="10%" rowspan="2" style="vertical-align: middle;">Total <br>Quantity</th>
+            <th width="10%" rowspan="" colspan="6" style="vertical-align: middle;">Customer Selection</th>
+            <th width="10%" rowspan="" colspan="5" style="vertical-align: middle;">Nupco Remarks</th>
             <th width="8%" rowspan="" colspan="2" style="vertical-align: middle;">Transfer</th>
             <th width="8%" rowspan="2" style="vertical-align: middle;">Remarks</th>
             <th width="8%" rowspan="2" style="vertical-align: middle;">Indicator</th>
@@ -215,7 +215,6 @@
           <div class="col-md-4 col-4 text-center py-1">
             <!-- <a class="btn btn-info text-white cus-btn" style="width: 16vw;">
             <i class="fas fa-save"></i> Save</a> -->
-            <button id="exportButton" class="btn btn-danger clearfix"><span class="fa fa-file-pdf-o"></span> Export to PDF</button>
           </div>
            <div class="col-md-4 col-4 text-center py-1">
             <a class="btn btn-info text-white cus-btn" style="width: 16vw;">
@@ -239,72 +238,5 @@
           uiLibrary: 'bootstrap4'
       });
   </script>
-  <!-- you need to include the shieldui css and js assets in order for the components to work -->
-<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light/all.min.css" />
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
-<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/jszip.min.js"></script>
-<script type="text/javascript">
-    jQuery(function ($) {
-        $("#exportButton").click(function () {
-            // parse the HTML table element having an id=exportTable
-            var dataSource = shield.DataSource.create({
-                data: "#exportTable",
-                schema: {
-                    type: "table",
-                    fields: {
-                        Serial_No: { type: Number },
-                        Material_No: { type: String },
-                        Vendor: { type: String },
-                        Manufacturer: { type: String },
-                        L_C: { type: String },
-                        Quantity: { type: String },
-                        Customer_Selection: { type: String },
-                        Nupco_Remarks: { type: String },
-                        Transfer: { type: String },
-                        Remarks: { type: String }
-                    }
-                }
-            });
-
-            // when parsing is done, export the data to PDF
-            dataSource.read().then(function (data) {
-                var pdf = new shield.exp.PDFDocument({
-                    author: "PrepBootstrap",
-                    created: new Date()
-                });
-
-                pdf.addPage("a4", "portrait");
-
-                pdf.table(
-                    50,
-                    50,
-                    data,
-                    [
-                        { field: "Serial_No", title: "Serial No", width: 50 },
-                        { field: "Material_No", title: "Material No", width: 50 },
-                        { field: "Vendor", title: "Vendor", width: 50 },
-                        { field: "Manufacturer", title: "Manufacturer", width: 50 },
-                        { field: "L_C", title: "L C", width: 50 },
-                        { field: "Quantity", title: "Quantity", width: 50 },
-                        { field: "Customer_Selection", title: "CustomerSelection", width: 50 },
-                        { field: "Nupco_Remarks", title: "NupcoRemarks", width: 50 },
-                        { field: "Transfer", title: "Transfer", width: 50 },
-                        { field: "Remarks", title: "Remarks", width: 50 }
-                    ],
-                    {
-                        margins: {
-                            top: 50,
-                            left: 0
-                        }
-                    }
-                );
-
-                pdf.saveAs({
-                    fileName: "PrepBootstrapPDF"
-                });
-            });
-        });
-    });
-</script>
 </body>
 </html>
