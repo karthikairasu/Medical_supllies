@@ -17,7 +17,42 @@
       padding: 2px 3px;
       text-align: center;
     }
-    
+    .highcharts-figure, .highcharts-data-table table {
+        min-width: 320px; 
+        max-width: 800px;
+        margin: 1em auto;
+    }
+
+    .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+    }
+    .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+    }
+    .highcharts-data-table th {
+      font-weight: 600;
+        padding: 0.5em;
+    }
+    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+        padding: 0.5em;
+    }
+    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+    }
+    .highcharts-data-table tr:hover {
+        background: #f1f7ff;
+    }
+    .highcharts-credits{
+      display: none;
+    }
   </style>
   <script>
   window.onload = function () {
@@ -132,12 +167,40 @@
       indexLabel: "{label} - {y}",
       dataPoints: [
         { y: 294, label: "LC" },
-        { y: 206, label: "Awarded" },
+        { y: 206, label: "Award" },
         { y: 88, label: "Cancelled" }
       ]
     }]
   };
   $("#chartContainer3").CanvasJSChart(options);
+  // ======LC Award Ratio========//
+  CanvasJS.addColorSet("greenShades4",
+                [//colorSet Array
+
+                "#77BB00",
+                "#FF9923", 
+                "#00AAFF",              
+                "#0054AC"                
+                ]);
+  var options = {
+  animationEnabled: true,
+  colorSet: "greenShades4",
+  title: {
+    text: "LC Award Ratio"
+  },
+  data: [{
+    type: "doughnut",
+    innerRadius: "40%",
+    showInLegend: true,
+    legendText: "{label}",
+    indexLabel: "{label}: #percent",
+    dataPoints: [
+      { label: "Award", y: 70 },
+      { label: "Cancelled", y: 200 }
+    ]
+  }]
+};
+$("#chartContainer4").CanvasJSChart(options);
 
 // Construct options first and then pass it as a parameter
 var options1 = {
@@ -150,15 +213,8 @@ var options1 = {
     legendText: "Try Resizing with the handle to the bottom right",
     showInLegend: true,
     dataPoints: [
-      { y: 10 },
-      { y: 6 },
-      { y: 14 },
-      { y: 12 },
-      { y: 19 },
-      { y: 14 },
-      { y: 26 },
-      { y: 10 },
-      { y: 22 }
+      { y: 70 },
+      { y: 200 }
       ]
     }]
 };
@@ -303,35 +359,92 @@ $("#resizable").resizable({
           <div id="chartContainer4" style="height: 100%; width: 100%;"></div>
         </div>
       </div> -->
-      <div class="col-6">
-      <!-- partial:index.partial.html -->
-        <div id="chart">
-        </div>
-      <!-- partial -->
-      </div>
+      <div class="col-6 mx-auto">
+      <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+        </p>
 
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+        <!-- <button id="plain">Plain</button>
+        <button id="inverted">Inverted</button>
+        <button id="polar">Polar</button> -->
+      </figure>
+      </div>
+      <div class="col-6 mx-auto">
+       <div class="my-3" id="chartContainer4" style="height: 300px; width: 100%;"></div>
+     </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
   <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
   <script src="https://canvasjs.com/assets/script/jquery-ui.1.11.2.min.js"></script>
   <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
   <script type="text/javascript">
-   var options = {
-  chart: {
-    type: 'bar'
-  },
-  series: [{
-    name: 'sales',
-    data: [30,40,45,50,49,60,70,91,125]
-  }],
-  xaxis: {
-    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
-  }
-}
+     var chart = Highcharts.chart('container', {
 
-var chart = new ApexCharts(document.querySelector("#chart"), options);
+    title: {
+        text: 'Items Report'
+    },
 
-chart.render();
+    subtitle: {
+        text: 'Plain'
+    },
+
+    xAxis: {
+        categories: ['Awarded', 'Cancelled', 'On Hold', 'Sample', 'Review Letter', 'Not Reviewed Yet']
+    },
+
+    series: [{
+        type: 'column',
+        colorByPoint: true,
+        data: [200, 50, 288, 300, 670, 750],
+        showInLegend: false
+    }]
+
+});
+
+
+$('#plain').click(function () {
+    chart.update({
+        chart: {
+            inverted: false,
+            polar: false
+        },
+        subtitle: {
+            text: 'Plain'
+        }
+    });
+});
+
+$('#inverted').click(function () {
+    chart.update({
+        chart: {
+            inverted: true,
+            polar: false
+        },
+        subtitle: {
+            text: 'Inverted'
+        }
+    });
+});
+
+$('#polar').click(function () {
+    chart.update({
+        chart: {
+            inverted: false,
+            polar: true
+        },
+        subtitle: {
+            text: 'Polar'
+        }
+    });
+});
+
   </script>
 </body>
 </html>
