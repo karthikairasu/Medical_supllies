@@ -17,6 +17,7 @@
       padding: 2px 3px;
       text-align: center;
     }
+    
   </style>
   <script>
   window.onload = function () {
@@ -138,7 +139,44 @@
   };
   $("#chartContainer3").CanvasJSChart(options);
 
+// Construct options first and then pass it as a parameter
+var options1 = {
+  animationEnabled: true,
+  title: {
+    text: "Chart inside a jQuery Resizable Element"
+  },
+  data: [{
+    type: "column", //change it to line, area, bar, pie, etc
+    legendText: "Try Resizing with the handle to the bottom right",
+    showInLegend: true,
+    dataPoints: [
+      { y: 10 },
+      { y: 6 },
+      { y: 14 },
+      { y: 12 },
+      { y: 19 },
+      { y: 14 },
+      { y: 26 },
+      { y: 10 },
+      { y: 22 }
+      ]
+    }]
+};
+
+$("#resizable").resizable({
+  create: function (event, ui) {
+    //Create chart.
+    $("#chartContainer4").CanvasJSChart(options1);
+  },
+  resize: function (event, ui) {
+    //Update chart size according to its container size.
+    $("#chartContainer4").CanvasJSChart().render();
   }
+});
+
+  }
+
+
   </script>
 </head>
 <body>
@@ -260,9 +298,41 @@
           <div class="my-3" id="chartContainer3" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
-      
+      <!-- <div class="col-6">
+        <div id="resizable" style="height: 370px;border:1px solid gray;">
+          <div id="chartContainer4" style="height: 100%; width: 100%;"></div>
+        </div>
+      </div> -->
+      <div class="col-6">
+      <!-- partial:index.partial.html -->
+        <div id="chart">
+        </div>
+      <!-- partial -->
+      </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
   <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/jquery-ui.1.11.2.min.js"></script>
   <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+  <script type="text/javascript">
+   var options = {
+  chart: {
+    type: 'bar'
+  },
+  series: [{
+    name: 'sales',
+    data: [30,40,45,50,49,60,70,91,125]
+  }],
+  xaxis: {
+    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+  }
+}
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+chart.render();
+  </script>
 </body>
 </html>
 
