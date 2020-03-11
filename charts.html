@@ -11,6 +11,14 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Akronim|Titillium+Web|Changa|Roboto|Merienda|El+Messiri|Ubuntu&display=swap" rel="stylesheet">
   <style type="text/css">
+    .table-secondary, .table-secondary>td, .table-secondary>th{
+      height: 100vh!important;
+    }
+    @media screen and (max-width: 992px){
+      .table-secondary, .table-secondary>td, .table-secondary>th{
+         height: auto!important;
+      } 
+    }
     .canvasjs-chart-credit{
       display: none;
     }
@@ -77,7 +85,7 @@
 </head>
 <body>
     <div class="container-fluid">
-      <div class="row d-flex justify-content-center align-items-center table-secondary" style="height: 100vh!important">
+      <div class="row d-flex justify-content-center align-items-center table-secondary">
         <div class="col-12 col-lg-6">
           <figure class="highcharts-figure">
             <div id="container"></div>
