@@ -14,14 +14,20 @@
   <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
   <style type="text/css">
       .chklist_table tbody{
-        height: 300px;
+        height: 445px;
         overflow: auto;
         margin-bottom: 50px !important;
       }
       .chklist_table {
-          height: 330px;
+          height: 445px;
           overflow: auto;
           margin-bottom: 50px!important;
+      }
+      .chklist_table thead tr:nth-child(1) th {
+          position: sticky;
+          top: 0px;
+          z-index: 999;
+          font-size: 13px;
       }
       .bg-dd{
         background: #ebe07e!important;
@@ -44,7 +50,6 @@
       </h4>
       <h6 class="text-center text-secondary"><b>ORTHO, SPINE AND NEURO TENDER NPT 0008/19 </b></h6>
       <h6 class="text-center text-white py-1" style="background-color: #218ec9!important;"><b>Awarded Group Details</b></h6>
-      <form class="" style="overflow-x: auto">
       <div class="table table-responsive border-bottom mb-0">
       <table class="table table-bordered text-center chklist_table">
         <thead>
@@ -205,7 +210,6 @@
         </tbody>
       </table> 
       </div>
-      </form> 
       <div class="row mx-0 my-1">         
           <div class="col-md-4 col-4 text-center py-1">
             <!-- <a class="btn btn-info text-white cus-btn" style="width: 16vw;">
