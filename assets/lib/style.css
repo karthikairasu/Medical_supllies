@@ -286,7 +286,7 @@ body{
       color: #212529;
       text-align: left;
       list-style: none;
-      background-color: #a7a9ac;
+      background-color: white;
       background-clip: padding-box;
       border: 1px solid rgba(0,0,0,.15);
       border-radius: .25rem;
@@ -305,3 +305,30 @@ body{
     .drop-tbl th, .drop-tbl td{
       border: 1px solid #c8c9cc!important;
     }
+    /*=======reject-table========*/
+    .reject-table thead th, .reject-table tr, .reject-table tbody td {
+        border: 1px solid #607d8b;
+        vertical-align: middle;
+        padding: 2px 4px;
+    }
+    .reject-table tbody{
+      font-weight: bold;
+    }
+    option {
+      font-weight: bold;
+      display: block;
+      white-space: pre;
+      min-height: 1.2em;
+      padding: 0px 2px 1px;
+    }
+    :not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
+      width:110px!important;
+    }
+    .bootstrap-select>.dropdown-toggle {
+      border: 2px solid #FF9800;
+    }
+    .bootstrap-select>.btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle {
+    color: #212529;
+    background-color: #dae0e5;
+    border-color: #FF9800;
+   }
