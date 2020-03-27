@@ -32,6 +32,11 @@ body{
       background: #bbbdbf;
       color: black;
     }
+    .head-7 th{
+      background: #002060;
+      color: white;
+      outline: 1px solid #8e8c8c;
+    }
     .chklist_table {
       height: 330px;
       overflow: auto;
@@ -322,14 +327,22 @@ body{
       padding: 0px 2px 1px;
     }
     :not(.input-group)>.bootstrap-select.form-control:not([class*=col-]) {
-      width:110px!important;
+      width:30px!important;
     }
     .bootstrap-select>.dropdown-toggle {
       border: 2px solid #FF9800;
       font-size: 14px;
+      background: wheat;
     }
     .bootstrap-select>.btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show>.btn-light.dropdown-toggle {
     color: #212529;
     background-color: #dae0e5;
     border-color: #FF9800;
    }
+   .bootstrap-select .dropdown-menu li {
+     position: relative;
+     border: 1px solid rgba(0,0,0,.125);
+  }
+  .bootstrap-select.dropdown-menu li+.bootstrap-select.dropdown-menu li {
+    border-top-width: 0;
+  }
