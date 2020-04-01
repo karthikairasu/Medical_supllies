@@ -398,7 +398,7 @@
                 <input type="checkbox" class="option-input-2 checkbox dmu" name="dmu"/>
               </label>
             </td>
-            <td></td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="font-size: 12px">Select&ensp;<i class="fas fa-arrow-down d-inline"></i></button></td>
             <td><!-- 
               <button class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="font-size: 12px">Select&ensp;<i class="fas fa-arrow-down d-inline"></i></button> -->
             </td>
@@ -865,42 +865,40 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h5 class="modal-title text-center w-100">Select Rejection Reason</h5>
+        <h5 class="modal-title text-center w-100">Enter Remarks</h5>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <table class="table table-bordered reject-table">
+        <table class="table table-bordered remark-table">
           <thead>
-            <tr>
-              <th class="text-info">Rejection Reason</th>
-              <th class="text-info">Free Enter Requirement</th>
+            <tr style="background: #002060;color: white;">
+              <th colspan="6">Remarks</th>
+            </tr>
+            <tr style="background: #002060;color: white;">
+              <th class="p-0">MOH</th>
+              <th class="p-0">MNGHA</th>
+              <th class="p-0">SFH</th>
+              <th class="p-0">PSMMC</th>
+              <th class="p-0">MODA</th>
+              <th class="p-0">DMU</th>
             </tr>
           </thead>
           <tbody class="text-danger">
             <tr>
-              <td>Never Been Used</td>
-              <td><input class="form-control border-0" value="Yes"></td>
-            </tr>
-            <tr>
-              <td>Due To Compatability</td>
-              <td><input class="form-control border-0" value="Yes"></td>
-            </tr>
-            <tr>
-              <td>Old Technology</td>
-              <td><input class="form-control border-0" value="Mention"></td>
-            </tr>
-            <tr>
-              <td>Poor Quality</td>
-              <td><input class="form-control border-0" value="Detail"></td>
-            </tr>
-            <tr>
-              <td>Not Match Description</td>
-              <td><input class="form-control border-0" value="Detail"></td>
+              <td><textarea class="form-control w-100 border-0"></textarea></td>
+              <td><textarea class="form-control w-100 border-0"></textarea></td>
+              <td><textarea class="form-control w-100 border-0"></textarea></td>
+              <td><textarea class="form-control w-100 border-0"></textarea></td>
+              <td><textarea class="form-control w-100 border-0"></textarea></td>
+              <td><textarea class="form-control w-100 border-0"></textarea></td>
             </tr>
           </tbody>
         </table>
+        <div class="form-group text-center">
+          <button class="btn btn-info">Submit</button>
+        </div>
       </div>
 
     </div>

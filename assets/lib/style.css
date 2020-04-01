@@ -310,13 +310,14 @@ body{
     .drop-tbl th, .drop-tbl td{
       border: 1px solid #c8c9cc!important;
     }
-    /*=======reject-table========*/
-    .reject-table thead th, .reject-table tr, .reject-table tbody td {
+    /*=======remark-table========*/
+    .remark-table thead th, .remark-table tr, .remark-table tbody td {
         border: 1px solid #607d8b;
         vertical-align: middle;
         padding: 2px 4px;
+        text-align: center;
     }
-    .reject-table tbody{
+    .remark-table tbody{
       font-weight: bold;
     }
     option {
