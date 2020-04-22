@@ -9,6 +9,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Play|Titillium+Web|Changa|Lobster|Signika|Ubuntu&display=swap" rel="stylesheet">
   <style type="text/css">
     .canvasjs-chart-credit{
       display: none;
@@ -373,6 +374,16 @@ $("#resizable").resizable({
       <div class="col-6 mx-auto">
        <div class="my-3" id="chartContainer4" style="height: 300px; width: 100%;"></div>
      </div>
+     <h2 class="text-center pb-3 table-warning">
+        <b style="text-shadow: 0 1px #808d93,-1px 0 #cdd2d5,-1px 2px #808d93,-2px 1px #cdd2d5,-2px 3px #808d93,-3px 2px #cdd2d5,-3px 4px #808d93,-4px 3px #cdd2d5,-4px 5px #808d93,-5px 4px #cdd2d5,-5px 6px #808d93,-6px 5px #cdd2d5,-6px 7px #808d93,-7px 6px #cdd2d5,-7px 8px #808d93,-8px 7px #cdd2d5;">Single Sector</b>
+      </h2>
+     <div class="col-8 mx-auto">
+      <figure class="highcharts-figure">
+        <div id="sector_indiv"></div>
+        <p class="highcharts-description">
+        </p>
+      </figure>
+      </div>
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -445,6 +456,95 @@ $('#polar').click(function () {
     });
 });
 
+Highcharts.setOptions({
+    chart: {
+        style: {
+            fontFamily: 'Signika',
+            fontSize:'20px'
+        }
+    }
+});
+var chart = Highcharts.chart('sector_indiv', {
+
+  chart: {
+    type: 'column'
+  },
+
+  title: {
+    text: 'Progress Report',
+        style: {
+            fontFamily: 'Signika',
+            fontSize:'28px',
+            fontWeight:'bold'
+        }
+  },
+
+  subtitle: {
+    text: ''
+  },
+
+  legend: {
+    align: 'right',
+    verticalAlign: 'middle',
+    layout: 'vertical'
+  },
+
+  xAxis: {
+    categories: ['Moh', 'Moda', 'Sfh'],
+    labels: {
+      x: -10
+    }
+  },
+
+  yAxis: {
+    allowDecimals: false,
+    title: {
+      text: 'Count'
+    }
+  },
+
+  series: [{
+    name: 'Accepted Quotations',
+    data: [1, 4, 3]
+  }, {
+    name: 'Rejected Quotations',
+    data: [6, 4, 2]
+  }, {
+    name: 'Total Quotations',
+    data: [8, 4, 3]
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          align: 'center',
+          verticalAlign: 'bottom',
+          layout: 'horizontal'
+        },
+        yAxis: {
+          labels: {
+            align: 'left',
+            x: 0,
+            y: -5
+          },
+          title: {
+            text: null
+          }
+        },
+        subtitle: {
+          text: null
+        },
+        credits: {
+          enabled: false
+        }
+      }
+    }]
+  }
+});
   </script>
 </body>
 </html>
