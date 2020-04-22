@@ -54,6 +54,14 @@
     .highcharts-credits{
       display: none;
     }
+    .hide-link {
+        position: absolute;
+        bottom: 10px;
+        left: 0px;
+        height: 7%;
+        width: 13%;
+        background: white;
+    }
   </style>
   <script>
   window.onload = function () {
@@ -202,6 +210,35 @@
   }]
 };
 $("#chartContainer4").CanvasJSChart(options);
+// ======LC Award Ratio new========//
+  CanvasJS.addColorSet("greenShades5",
+                [//colorSet Array
+
+                "#5A9BD5",
+                "#E37D39", 
+                "#A5A5A5"                
+                ]);
+  var options = {
+  animationEnabled: true,
+  colorSet: "greenShades5",
+  title: {
+    text: "LC Award Ratio"
+  },
+  data: [{
+    type: "doughnut",
+    startAngle: -90,
+    innerRadius: "50%",
+    showInLegend: true,
+    legendText: "{label}",
+    indexLabel: "{label}: #percent",
+    dataPoints: [
+      { label: "Accepted", y: 70 },
+      { label: "Cancelled", y: 200 },
+      { label: "Total", y: 270 }
+    ]
+  }]
+};
+$("#chartContainer5").CanvasJSChart(options);
 
 // Construct options first and then pass it as a parameter
 var options1 = {
@@ -383,6 +420,20 @@ $("#resizable").resizable({
         <p class="highcharts-description">
         </p>
       </figure>
+      </div>
+      <h2 class="text-center pb-3 table-warning">
+        <b style="text-shadow: 0 1px #808d93,-1px 0 #cdd2d5,-1px 2px #808d93,-2px 1px #cdd2d5,-2px 3px #808d93,-3px 2px #cdd2d5,-3px 4px #808d93,-4px 3px #cdd2d5,-4px 5px #808d93,-5px 4px #cdd2d5,-5px 6px #808d93,-6px 5px #cdd2d5,-6px 7px #808d93,-7px 6px #cdd2d5,-7px 8px #808d93,-8px 7px #cdd2d5;">LC Award Ratio</b>
+      </h2>
+      <div class="row mx-0">
+        <div class="col-12 d-flex justify-content-center align-items-center">
+          <div class="table table-responsive mb-0">
+            
+          </div>
+        </div>
+        <div class="col-8 mx-auto">
+          <div class="my-3" id="chartContainer5" style="height: 300px; width: 100%;"></div>
+          <div class="hide-link"></div>
+        </div>
       </div>
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
