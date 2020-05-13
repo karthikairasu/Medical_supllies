@@ -3,7 +3,7 @@ body{
       transition: color 0.2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
     }
     .chklist_table th, .chklist_table td{
-      padding: 5px;
+      padding: 1px 2px;
       vertical-align: middle;
       border-top: 1px solid #dee2e6;
     }
@@ -46,30 +46,35 @@ body{
       position: sticky;
       top: 0px;
       z-index: 999;
+      outline: 1px solid #8e8c8c;
       font-size: 13px;
     }
     .chklist_table thead tr:nth-child(2) th{
       position: sticky;
-      top: 30px;
+      top: 22px;
       z-index: 999;
+      outline: 1px solid #8e8c8c;
       font-size: 13px;
     }
     .chklist_table thead tr:nth-child(3) th{
       position: sticky;
-      top: 60px;
+      top: 52px;
       z-index: 999;
+      outline: 1px solid #8e8c8c;
       font-size: 13px;
     }
     .chklist_table thead tr:nth-child(4) th{
       position: sticky;
-      top: 90px;
+      top: 74px;
       z-index: 999;
+      outline: 1px solid #8e8c8c;
       font-size: 13px;
     }
     .chklist_table thead tr:nth-child(5) th{
       position: sticky;
-      top: 112px;
+      top: 96px;
       z-index: 999;
+      outline: 1px solid #8e8c8c;
       font-size: 13px;
     }
     .remk_table label{
