@@ -72,7 +72,7 @@ body{
     }
     .chklist_table thead tr:nth-child(5) th{
       position: sticky;
-      top: 96px;
+      top: 90px;
       z-index: 999;
       outline: 1px solid #8e8c8c;
       font-size: 13px;
