@@ -17,9 +17,9 @@
   
 <div class="container-fluid mt-1">
   <div class="row mx-0">
-    <div class="col-md-12 card shadow mx-auto" style="height: 99vh">
-      <div class="row py-1">
-         <div class="col-lg-3 text-center">
+    <div class="col-md-12 card shadow main_card mx-auto" style="height: 99vh">
+      <div class="row py-1 top">
+         <div class="col-lg-3 text-center logo">
            <img class="float-left" src="assets/images/images2.png" height="52px" width="auto">
          </div>
          <div class="col-lg-6">
@@ -27,7 +27,7 @@
               <b>UPRD- TECHNICAL EVALUATION PORTAL</b> 
            </h4>
          </div>
-         <div class="col-lg-3">
+         <div class="col-lg-3 text-center logout">
           <b class="float-right text-primary py-2" style="font-size: 17px">
              <a href="#"><i class="fas fa-power-off"></i> Logout</a></b>
           <a href="charts.html" target="_blank" class="btn btn-primary btn-sm mx-4 text-white float-right mt-1">
@@ -50,7 +50,7 @@
               <a class="btn btn-warning btn-sm my-1">Items Report</a>
             </th> -->
             <th width="15%">
-              <button type="submit" class="btn btn-outline-primary w-100" name="" disabled><i class="fas fa-user"></i> Medical Supplies</button>
+              <button type="submit" class="btn btn-outline-primary w-100" name="" disabled><i class="fas fa-user"></i>&ensp;Medical Supplies</button>
             </th>
             <th width="10%">
               <a href="" class="btn btn-success w-100">Download</a>
@@ -62,6 +62,7 @@
         </thead>
       </table>
     </form>
+      <div class="table-res">
       <table class="table table-bordered mb-0 table_1">
         <thead>
           <tr class="text-left head-1">
@@ -85,6 +86,7 @@
           </tr>
         </thead>
       </table>
+      </div>
       <div class="table table-responsive border-bottom mb-0">
       <table class="table table-bordered text-center chklist_table mb-0">
         <thead>
@@ -1385,16 +1387,16 @@
           <p class="mb-0" style="font-size: 12px">Showing 1 ( 6 ) of 802 entries</p>
         </div>
         <div class="row mx-0 my-1">         
-          <div class="col-md-4 col-4 text-center py-1">
-            <a class="btn btn-info text-white cus-btn" style="width: 16vw;">
+          <div class="col-lg-4 col-md-5 col-5 text-center py-1">
+            <a class="btn btn-info text-white cus-btn preI" style="width: 33vh;">
             <i class="fas fa-arrow-left"></i> Previous Item</a>
           </div>
-           <div class="col-md-4 col-4 text-center py-1">
+           <div class="col-lg-4 col-md-2 col-2 text-center py-1">
             <!-- <a class="btn btn-info text-white cus-btn" style="width: 16vw;">
             <i class="fas fa-save"></i> Save</a> -->
           </div>
-          <div class="col-md-4 col-4 text-center py-1">
-            <a class="btn btn-info text-white cus-btn" style="width: 16vw;">
+          <div class="col-lg-4 col-md-5 col-5 text-center py-1">
+            <a class="btn btn-info text-white cus-btn nextI" style="width: 33vh;">
             Next Item <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
