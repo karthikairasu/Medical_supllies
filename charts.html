@@ -87,24 +87,29 @@
     <div class="container-fluid">
       <div class="row d-flex justify-content-center align-items-center table-secondary">
         <div class="col-12 col-lg-6">
-          <figure class="highcharts-figure">
-            <div id="container"></div>
-            <p class="highcharts-description">
-            </p>
-
-            <!-- <button id="plain">Plain</button>
-            <button id="inverted">Inverted</button>
-            <button id="polar">Polar</button> -->
-          </figure>
-        </div>
+            <div class="col-12 mx-auto" style="height: 300px;">
+              <figure class="highcharts-figure">
+                <div id="container" style="height: 300px;"></div>
+                <p class="highcharts-description">
+                </p>
+              </figure>
+            </div>
+            <div class="col-12 mx-auto" style="height: 290px;">
+              <figure class="highcharts-figure">
+                <div id="sector_indiv" style="height: 290px;"></div>
+                <p class="highcharts-description">
+                </p>
+              </figure>
+            </div>
+      </div>
         <div class="col-12 col-lg-6">
           <div class="row">
           <div class="card col-10 col-lg-10 mx-auto my-2">
-            <div class="my-1" id="chartContainer" style="height: 300px; width: 100%;"></div>
+            <div class="my-1" id="chartContainer" style="height: 290px; width: 100%;"></div>
             <div class="hide-link"></div>
           </div>
           <div class="card col-10 col-lg-10 mx-auto my-2">
-           <div class="my-1" id="chartContainer4" style="height: 300px; width: 100%;"></div>
+           <div class="my-1" id="chartContainer4" style="height: 290px; width: 100%;"></div>
            <div class="hide-link"></div>
           </div> 
           </div>
@@ -145,6 +150,99 @@
         }]
 
     });
+
+      Highcharts.setOptions({
+    chart: {
+        style: {
+            fontFamily: 'Signika',
+            fontSize:'20px'
+        }
+    }
+});
+var chart = Highcharts.chart('sector_indiv', {
+
+  chart: {
+    type: 'column'
+  },
+
+  title: {
+    text: 'Progress Report',
+        style: {
+            fontFamily: 'Signika',
+            fontSize:'28px',
+            fontWeight:'bold'
+        }
+  },
+
+  subtitle: {
+    text: ''
+  },
+
+  legend: {
+    align: 'right',
+    verticalAlign: 'middle',
+    layout: 'vertical'
+  },
+
+  xAxis: {
+    categories: ['Moh', 'Moda', 'Sfh', 'Kfmc', 'Kamc', 'Ngha'],
+    labels: {
+      x: -10
+    }
+  },
+
+  yAxis: {
+    allowDecimals: false,
+    title: {
+      text: 'Count'
+    }
+  },
+
+  series: [{
+    name: 'Accepted Quotations',
+    data: [1, 4, 3, 5, 7, 2],
+    color:'#95CEFF'
+  }, {
+    name: 'Rejected Quotations',
+    data: [6, 4, 2, 3, 5, 7],
+    color:'#FFB637'
+  }, {
+    name: 'Total Quotations',
+    data: [8, 4, 3, 4, 2, 6],
+    color:'#E58054'
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          align: 'center',
+          verticalAlign: 'bottom',
+          layout: 'horizontal'
+        },
+        yAxis: {
+          labels: {
+            align: 'left',
+            x: 0,
+            y: -5
+          },
+          title: {
+            text: null
+          }
+        },
+        subtitle: {
+          text: null
+        },
+        credits: {
+          enabled: false
+        }
+      }
+    }]
+  }
+});
 
 
     $('#plain').click(function () {
@@ -226,36 +324,37 @@
       }]
     };
     $("#chartContainer").CanvasJSChart(options);
-    // ======LC Award Ratio========//
-    CanvasJS.addColorSet("greenShades4",
-                  [//colorSet Array
+    // ======LC Award Ratio new========//
+  CanvasJS.addColorSet("greenShades5",
+                [//colorSet Array
 
-                  "#77BB00",
-                  "#FF9923", 
-                  "#00AAFF",              
-                  "#0054AC"                
-                  ]);
-    var options = {
-    animationEnabled: true,
-    colorSet: "greenShades4",
-    title: {
-      text: "LC Award Ratio",
-      fontFamily: "Roboto",
-      fontColor: '#1a68ba'
-    },
-    data: [{
-      type: "doughnut",
-      innerRadius: "40%",
-      showInLegend: true,
-      legendText: "{label}",
-      indexLabel: "{label}: #percent",
-      dataPoints: [
-        { label: "Award", y: 70 },
-        { label: "Cancelled", y: 200 }
-      ]
-    }]
-  };
-  $("#chartContainer4").CanvasJSChart(options);
+                "#5A9BD5",
+                "#E37D39", 
+                "#A5A5A5"                
+                ]);
+  var options = {
+  animationEnabled: true,
+  colorSet: "greenShades5",
+  title: {
+    text: "LC Award Ratio",
+    fontFamily: "Roboto",
+    fontColor: '#1a68ba'
+  },
+  data: [{
+    type: "doughnut",
+    startAngle: -90,
+    innerRadius: "50%",
+    showInLegend: true,
+    legendText: "{label}",
+    indexLabel: "{label}: #percent",
+    dataPoints: [
+      { label: "Accepted", y: 70 },
+      { label: "Cancelled", y: 200 },
+      { label: "Total", y: 270 }
+    ]
+  }]
+};
+$("#chartContainer4").CanvasJSChart(options);
   }
   </script>
   </body>
