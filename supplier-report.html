@@ -37,25 +37,49 @@
       .bg-dd{
         background: #ebe07e!important;
       }
+      @media (max-width: 575.98px) { 
+       .form-group > .col-6{
+        padding: 0px 15px!important;
+       }
+       .form-group > .col-lg-5 > .row > .col-lg-6 > .row > .col-lg-2{
+        padding: 0px 15px!important;
+       }
+      }
+      @media (min-width: 576px) and (max-width: 767.98px) {
+
+      }
+      @media (min-width: 768px) and (max-width: 991.98px) {
+
+      }
   </style>
 </head>
 <body style="background: url(assets/images/bg-body.png)">
   
 <div class="container-fluid mt-1">
   <div class="row mx-0">
-    <div class="col-md-12 card shadow mx-auto" style="height: 99vh">
-      <h4 class="text-center my-2">
-        <b class="float-left text-primary py-2" style="font-size: 17px;">
-          <a class="" href="" style="text-decoration: none"><i class="fas fa-home"></i> Home</a></b>
-        <img class="text-left" src="assets/images/images.png" height="47px" width="68px">
-        <b>Checklist for Medical Supplies</b>
-      </h4>
+    <div class="col-md-12 card shadow main_card mx-auto" style="height: 99vh">
+      <div class="row py-1 top">
+         <div class="col-lg-3 text-center logo">
+           <img class="float-left" src="assets/images/images2.png" height="52px" width="auto">
+           <b class="float-left text-primary pt-3 pl-3" style="font-size: 17px;">
+            <a class="" href="" style="text-decoration: none"><i class="fas fa-home"></i> Home</a></b>
+         </div>
+         <div class="col-lg-6">
+           <h4 class="text-center my-2">
+              <b>UPRD- TECHNICAL EVALUATION PORTAL</b> 
+           </h4>
+         </div>
+         <div class="col-lg-3 text-center logout">
+          <b class="float-right text-primary py-2" style="font-size: 17px">
+             <a href="#"><i class="fas fa-power-off"></i> Logout</a></b>
+         </div>
+      </div>
       <h6 class="text-center text-white py-1" style="background-color: #218ec9!important;"><b>Supplier Report</b></h6>
       <form class="">
 
       <div class="form-group row mx-0 mb-0">
-        <div class="col-lg-1"><b>Date:</b></div>
-        <div class="col-lg-5 pl-0">
+        <div class="col-lg-1 col-12"><b>Date:</b></div>
+        <div class="col-lg-5 col-6 pl-0">
           <div class="row">
             <div class="col-lg-6">
               <div class="row">
@@ -79,7 +103,7 @@
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-6 col-6">
           <div class="form-group row mx-0">
             <label class="col-lg-2 pl-0"><b>Vendor : </b></label>
             <select class="col-lg-10  form-control">
@@ -90,8 +114,8 @@
         </div>
       </div>
       <div class="form-group row mx-0 mb-0">
-        <div class="col-lg-1"><b>Serial.No:</b></div>
-        <div class="col-lg-5 pl-0">
+        <div class="col-lg-1 col-12"><b>Serial.No:</b></div>
+        <div class="col-lg-5 col-6 pl-0">
           <div class="row">
             <div class="col-lg-6">
               <div class="row">
@@ -115,7 +139,7 @@
             </div>
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-lg-6 col-6">
           <div class="form-group row mx-0">
             <label class="col-lg-3 pl-0"><b>Manufacturer: </b></label>
             <input  type="text" class="col-lg-9 form-control">
@@ -125,18 +149,20 @@
 
       <div class="row mx-0">
 
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-6">
           <div class="form-group row mx-0">
             <label class="col-lg-2 px-0"><b>Material : </b></label>
             <input  type="text" class="col-lg-10 form-control">
           </div>        
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-6">
           <div class="form-group row mx-0">
-              <label class="col-lg-2 pl-0"><b>Customer : </b></label>
-              <input  type="text" class="form-control col-lg-7">
-              <div class="col-lg-1"></div>
-              <button class="btn btn-info text-white col-lg-2" type="button">Search</button>
+              <label class="col-lg-2 col-12 pl-0"><b>Customer : </b></label>
+              <input  type="text" class="form-control col-lg-7 col-6">
+              <div class="col-lg-1 col-1"></div>
+              <div class="col-lg-2 col-3">
+              <button class="btn btn-info text-white" type="button">Search</button>
+              </div>
             </div>
         </div>
         
@@ -151,13 +177,12 @@
             <th width="8%" rowspan="2" style="vertical-align: middle;">Material No</th>
             <th width="5%" rowspan="2" style="vertical-align: middle;">Vendor</th>
             <th width="7%" rowspan="2" style="vertical-align: middle;">Manufacturer</th>
-            <th width="5%" rowspan="2" style="vertical-align: middle;">L.C</th>
             <th width="8%" rowspan="2" style="vertical-align: middle;">Total <br>Quantity</th>
             <th width="10%" rowspan="" colspan="6" style="vertical-align: middle;">Customer Selection</th>
-            <th width="10%" rowspan="" colspan="5" style="vertical-align: middle;">Nupco Remarks</th>
+            <th width="10%" rowspan="" colspan="5" style="vertical-align: middle;">Nupco Evaluation</th>
+            <th width="5%" rowspan="" colspan="6" style="vertical-align: middle;">Rejection</th>
             <th width="8%" rowspan="" colspan="2" style="vertical-align: middle;">Transfer</th>
             <th width="29%" rowspan="" colspan="6" style="vertical-align: middle;">Remarks</th>
-            <th width="5%" rowspan="2" style="vertical-align: middle;">Indicator</th>
           </tr>
           <tr>
             <th style="padding: 5px 7px">MOH</th>
@@ -173,6 +198,12 @@
             <th class="bg-dd">SAMPLE</th>
             <th class="bg-dd">REVIEW LATER</th>
 
+            <th class="p-0">MOH</th>
+            <th class="p-0">MNGHA</th>
+            <th class="p-0">SFH</th>
+            <th class="p-0">PSMMC</th>
+            <th class="p-0">MODA</th>
+            <th class="p-0">DMU</th>
 
             <th>From</th>
             <th style="padding: 5px 7px">To</th>
@@ -192,7 +223,6 @@
             <td>asd</td>
             <td>sfg</td>
             <td>sd</td>
-            <td>dd</td>
             <td>ff</td>
              
             <td>1</td>
@@ -208,6 +238,12 @@
             <td>4</td>
             <td>5</td>
 
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
 
             <td>2</td>
             <td>1</td>
@@ -218,7 +254,6 @@
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
-            <td>sg</td>
           </tr>
 
           <tr>
@@ -226,7 +261,6 @@
             <td>asd</td>
             <td>sfg</td>
             <td>sd</td>
-            <td>dd</td>
             <td>ff</td>
              
             <td>1</td>
@@ -242,6 +276,12 @@
             <td>4</td>
             <td>5</td>
 
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
 
             <td>2</td>
             <td>1</td>
@@ -252,14 +292,13 @@
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
-            <td>sg</td>
           </tr>
+
           <tr>
             <td>1</td>
             <td>asd</td>
             <td>sfg</td>
             <td>sd</td>
-            <td>dd</td>
             <td>ff</td>
              
             <td>1</td>
@@ -275,6 +314,12 @@
             <td>4</td>
             <td>5</td>
 
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
 
             <td>2</td>
             <td>1</td>
@@ -285,14 +330,13 @@
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
-            <td>sg</td>
           </tr>
+
           <tr>
             <td>1</td>
             <td>asd</td>
             <td>sfg</td>
             <td>sd</td>
-            <td>dd</td>
             <td>ff</td>
              
             <td>1</td>
@@ -308,6 +352,12 @@
             <td>4</td>
             <td>5</td>
 
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
 
             <td>2</td>
             <td>1</td>
@@ -318,14 +368,13 @@
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
-            <td>sg</td>
           </tr>
+
           <tr>
             <td>1</td>
             <td>asd</td>
             <td>sfg</td>
             <td>sd</td>
-            <td>dd</td>
             <td>ff</td>
              
             <td>1</td>
@@ -341,6 +390,12 @@
             <td>4</td>
             <td>5</td>
 
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
 
             <td>2</td>
             <td>1</td>
@@ -351,7 +406,82 @@
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
             <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
-            <td>sg</td>
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>asd</td>
+            <td>sfg</td>
+            <td>sd</td>
+            <td>ff</td>
+             
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+
+            <td>2</td>
+            <td>1</td>
+
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>asd</td>
+            <td>sfg</td>
+            <td>sd</td>
+            <td>ff</td>
+             
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+
+            <td>2</td>
+            <td>1</td>
+
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
+            <td class="p-0"><textarea class="form-control h-100">find</textarea></td>
           </tr>
 
         </tbody>
