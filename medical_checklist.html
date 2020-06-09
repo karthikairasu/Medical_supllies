@@ -264,9 +264,16 @@
               </label>
             </td>
             <td>
-              <label>
-                <input type="checkbox" class="option-input-2 checkbox moh" name="moh"/>
-              </label>
+              <div class="dropdown_main px-0">
+                <div class="dropdown">
+                  <div class="caption"></div>
+                  <div class="list">
+                    <div class="item">&ensp;</div>
+                    <div class="item" style="color:#0bd013;">✔</div>
+                    <div class="item" style="color:red;">✘</div>
+                  </div>
+                </div>
+              </div>
             </td>
             <td>
               <label>
@@ -1558,10 +1565,61 @@ $(".dmu").prop("checked",$(this).prop("checked"));
 $(function () {
     $('select').selectpicker();
 });
+
+$(function() {
+  
+  $('.dropdown > .caption').on('click', function() {
+    $(this).parent().toggleClass('open');
+  });
+  
+  $('.dropdown > .list > .item').on('click', function() {
+    $('.dropdown > .list > .item').removeClass('selected');
+    $(this).addClass('selected').parent().parent().removeClass('open').children('.caption').text( $(this).text() );
+  });
+  
+  $(document).on('keyup', function(evt) {
+    if ( (evt.keyCode || evt.which) === 27 ) {
+      $('.dropdown').removeClass('open');
+    }
+  });
+  
+  $(document).on('click', function(evt) {
+    if ( $(evt.target).closest(".dropdown > .caption").length === 0 ) {
+      $('.dropdown').removeClass('open');
+    }
+  });
+  
+});
+
+$(document).click(function(){
+   var a = "✘",
+       b = "✔";
+   var x = $('.caption').html(); 
+
+  if ( a == x ) {
+    $('.caption').css("color","red");
+   }else if(b == x ){
+    $('.caption').css("color","#0BD013");
+   }else{
+     $('.caption').css("color","black");
+   }
+   
+});
 </script>
 <script
   src="https://code.jquery.com/jquery-2.2.4.js"
   integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
   crossorigin="anonymous"></script>
+  <style type="text/css">
+    .red{
+      color:red!important;
+    }
+    .green{
+      color: green!important;
+    }
+    .black{
+      color: black!important;
+    }
+  </style>
 </body>
 </html>
