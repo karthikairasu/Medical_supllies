@@ -40,7 +40,7 @@ body{
     .chklist_table {
       height: 330px;
       overflow: auto;
-      margin-bottom: 150px!important;
+      margin-bottom: 15px!important;
     }
     .chklist_table thead tr:nth-child(1) th{
       position: sticky;
@@ -329,8 +329,8 @@ body{
     /*=======Scroll bar===========*/
     /* width */
     ::-webkit-scrollbar {
-      width: 3px;
-      height: 3px;
+      width: 12px;
+      height: 12px;
     }
 
     /* Track */
@@ -341,7 +341,7 @@ body{
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-      background: #8dc63f;
+      background: #2d72c3;
       border-radius: 10px;
     }
 
@@ -351,17 +351,6 @@ body{
       border-radius: 10px;
     }
     /*======media query=======*/
-    @media screen and (max-width: 500px) {
-       .cus-btn{
-        font-size: 10px;
-      }
-    }
-    @media screen and (min-width: 1000px) {
-      .cus-btn {
-        /*font-size: calc(8px + 6 * ((100vw - 320px) / 680));*/
-      }
-    }
-    
    .dropdown-menu {
       position: absolute;
       top: 100%;
@@ -406,8 +395,59 @@ body{
       font-weight: bold;
     }
 /*=======media queries========*/
+@media (max-width: 380.98px) { 
+ .top .logo img, .top .logo b{
+  text-align: center;
+  float: none!important;
+ }
+.top .logout b, .top .logout a{
+  text-align: center;
+  float: none!important;
+ }
+ .main_card{
+   height: 100%!important;
+ }
+ .search_tbl thead tr th:nth-child(1) {
+    width: 100%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(2) {
+    width: 50%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(3) {
+    width: 100%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(4) {
+    width: 100%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(5) {
+    width: 100%!important;
+    display: block;
+ }
+ .preI{
+    width: 12vh!important;
+ }
+ .nextI{
+    width: 12vh!important;
+ }
+ .cus-btn {
+    font-size: 10px;
+}
+.table-res{
+   overflow-x: auto;
+}
+.t-r-d{
+  height: 100%;
+ }
+.chklist_table {
+  margin-bottom: 150px!important;
+}
+}
 /*Extra small devices (portrait phones, less than 576px)*/
-@media (max-width: 575.98px) { 
+@media (min-width:381px) and (max-width: 575.98px) { 
 .top .logo img, .top .logo b{
   text-align: center;
   float: none!important;
@@ -451,6 +491,12 @@ body{
 .table-res{
    overflow-x: auto;
 }
+.t-r-d{
+  height: 100%;
+ }
+.chklist_table {
+  margin-bottom: 150px!important;
+}
 }
 
 /*Small devices (landscape phones, 576px and up)*/
@@ -466,6 +512,12 @@ body{
  .main_card{
    height: 100%!important;
  }
+ .t-r-d{
+  height: 100%;
+ }
+ .chklist_table {
+  margin-bottom: 150px!important;
+}
 }
 
 /*Medium devices (tablets, 768px and up)*/
@@ -481,16 +533,26 @@ body{
  .main_card{
    height: 100%!important;
  }
+ .t-r-d{
+  height: 100%;
+ }
+ .chklist_table {
+  margin-bottom: 150px!important;
+}
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
-
+ .t-r-d{
+  height: 46vh;
+}
 }
 
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-
+.t-r-d{
+  height: 53vh;
+}
 }
 /*=====Dropdown style======*/
 div.dropdown_main {
