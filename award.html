@@ -1,0 +1,869 @@
+<?php
+/*session_start();
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 60)) {
+    // last request was more than 30 minutes ago
+    session_unset();     // unset $_SESSION variable for the run-time 
+    session_destroy();   // destroy session data in storage
+}
+$_SESSION['LAST_ACTIVITY'] = time();
+if ($_SESSION['a_users']=='admin'){
+   header("Location: index.php");
+}*/
+include 'database/db_conection.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>UPRD- TECHNICAL EVALUATION PORTAL</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="assets/lib/styl.css">
+  <style type="text/css">
+    body{
+      text-shadow: 0 0.1em 0.1em rgba(0, 0, 0, 0.2);
+      transition: color 0.2s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    }
+    .chklist_table th, .chklist_table td{
+      padding: 1px 2px;
+      vertical-align: middle;
+      border-top: 1px solid #dee2e6;
+    }
+    .table thead th, .table tr, .table tbody td{
+      border: 1px solid #8e8c8c;
+      vertical-align: middle;
+    }
+    .table tfoot td{
+      border: 1px solid #8e8c8c;
+      padding: 3px
+    }
+    .head-1 th, .head-2 th{
+        padding: 3px;
+        vertical-align: middle;
+        border-top: 1px solid #dee2e6;
+    }
+    .head-3 th{
+      background: #002060;
+      color: white;
+    }
+    .head-4 th{
+      background: #3cb371;
+      color: black;
+    }
+    .head-5 th{
+      background: #3cb371;
+      color: black;
+    }
+    .head-6 th{
+      background: #3cb371;
+      color: black;
+    }
+    .head-7 th{
+      background: #002060;
+      color: white;
+      outline: 1px solid #8e8c8c;
+    }
+    .chklist_table {
+      height: 330px;
+      overflow: auto;
+      margin-bottom: 15px!important;
+    }
+    .chklist_table thead tr:nth-child(1) th{
+      position: sticky;
+      top: 0px;
+      z-index: 999;
+      outline: 1px solid #8e8c8c;
+      font-size: 13px;
+      white-space: nowrap;
+      padding: .65rem;
+    }
+    .chklist_table thead tr:nth-child(2) th{
+      position: sticky;
+      top: 40px;
+      z-index: 999;
+      outline: 1px solid #8e8c8c;
+      font-size: 13px;
+    }
+    .chklist_table thead tr:nth-child(3) th{
+      position: sticky;
+      top: 62px;
+      z-index: 999;
+      outline: 1px solid #8e8c8c;
+      font-size: 13px;
+    }
+    .chklist_table thead tr:nth-child(4) th{
+      position: sticky;
+      top: 84px;
+      z-index: 999;
+      outline: 1px solid #8e8c8c;
+      font-size: 13px;
+    }
+    .chklist_table thead tr:nth-child(5) th{
+      position: sticky;
+      top: 90px;
+      z-index: 999;
+      outline: 1px solid #8e8c8c;
+      font-size: 13px;
+    }
+    .remk_table label{
+      margin-bottom: 0px;
+      width:100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .search_tbl td, .search_tbl th {
+        padding:2px 2px; 
+        vertical-align: middle;
+        border-top: none;
+    }
+    .search_tbl thead th, .search_tbl tr, .search_tbl tbody td {
+        border: none;
+        vertical-align: middle;
+    }
+    /*=====Radio button=====*/
+    *{font-family: 'Roboto', sans-serif;}
+    @keyframes click-wave {
+      0% {
+        height: 40px;
+        width: 40px;
+        opacity: 0.35;
+        position: relative;
+      }
+      100% {
+        height: 200px;
+        width: 200px;
+        margin-left: -80px;
+        margin-top: -80px;
+        opacity: 0;
+      }
+    }
+
+    .option-input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      -o-appearance: none;
+      appearance: none;
+      position: relative;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 30px;
+      width: 30px;
+      transition: all 0.15s ease-out 0s;
+      background: #cbd1d8;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 0.5rem;
+      outline: none;
+      position: relative;
+      z-index: 100;
+    }
+    .option-input:hover {
+      background: #9faab7;
+    }
+    .option-input:checked {
+      background: #40e0d0;
+    }
+    .option-input:checked::before {
+      height: 40px;
+      width: 28px;
+      position: absolute;
+      content: '✔';
+      display: inline-block;
+      font-size: 26.66667px;
+      text-align: center;
+      line-height: 30px;
+    }
+    /*.option-input:checked::after {
+      -webkit-animation: click-wave 0.65s;
+      -moz-animation: click-wave 0.65s;
+      animation: click-wave 0.65s;
+      background: #40e0d0;
+      content: '';
+      display: block;
+      position: relative;
+      z-index: 100;
+    }*/
+    .option-input.radio {
+      border-radius: 50%;
+    }
+    .option-input.radio::after {
+      border-radius: 50%;
+    }
+    /*========Radio button deck==========*/
+    .chklist_table label{
+      display: inline-block;
+      margin-bottom: 0px;
+      width:100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .option-input-2 {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      -o-appearance: none;
+      appearance: none;
+      position: relative;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 30px;
+      width: 30px;
+      transition: all 0.15s ease-out 0s;
+      background: #ffffff;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 0px;
+      outline: none;
+      position: relative;
+      z-index: 100;
+    }
+    .option-input-2:before{
+      height: 40px;
+      width: 30px;
+      position: absolute;
+      content: '✘';
+      display: inline-block;
+      font-size: 26.66667px;
+      text-align: center;
+      line-height: 30px;
+      color:red;
+    }
+    .option-input-2:hover {
+      background: #ffffff;
+    }
+    .option-input-2:checked {
+      background: #fff;
+    }
+    .option-input-2:checked::before {
+      height: 40px;
+      width: 28px;
+      position: absolute;
+      content: '✔';
+      display: inline-block;
+      font-size: 26.66667px;
+      text-align: center;
+      line-height: 30px;
+      color:#0bd013;
+    }
+    ./*option-input-2:checked::after {
+      -webkit-animation: click-wave 0.65s;
+      -moz-animation: click-wave 0.65s;
+      animation: click-wave 0.65s;
+      background: #40e0d0;
+      content: '';
+      display: block;
+      position: relative;
+      z-index: 100;
+    }*/
+    .option-input-2.radio {
+      border-radius: 50%;
+    }
+    .option-input-2.radio::after {
+      border-radius: 50%;
+    }
+    /*=======yes no===========*/
+    .chklist_table label{
+      display: inline-block;
+      margin-bottom: 0px;
+      width:100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .option-input-yes {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      -ms-appearance: none;
+      -o-appearance: none;
+      appearance: none;
+      position: relative;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 30px;
+      width: 30px;
+      transition: all 0.15s ease-out 0s;
+      background: #ffffff;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: inline-block;
+      margin-right: 0px;
+      outline: none;
+      position: relative;
+      z-index: 100;
+    }
+    .option-input-yes:before{
+      height: 40px;
+      width: 30px;
+      position: absolute;
+      content: 'No';
+      display: inline-block;
+      font-size: 14px;
+      text-align: center;
+      line-height: 30px;
+      color: #218ec9;
+      font-weight: bold;
+    }
+    .option-input-yes:hover {
+      background: #ffffff;
+    }
+    .option-input-yes:checked {
+      background: #fff;
+    }
+    .option-input-yes:checked::before {
+      height: 40px;
+      width: 28px;
+      position: absolute;
+      content: 'Yes';
+      display: inline-block;
+      font-size: 14px;
+      text-align: center;
+      line-height: 30px;
+      color: #218ec9;
+      font-weight: bold;
+    }
+    /*.option-input-2:checked::after {
+      -webkit-animation: click-wave 0.65s;
+      -moz-animation: click-wave 0.65s;
+      animation: click-wave 0.65s;
+      background: #40e0d0;
+      content: '';
+      display: block;
+      position: relative;
+      z-index: 100;
+    }*/
+    .option-input-yes.radio {
+      border-radius: 50%;
+    }
+    .option-input-yes.radio::after {
+      border-radius: 50%;
+    }
+    /*=======Scroll bar===========*/
+    /* width 
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }*/
+
+    /* Track 
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      box-shadow: inset 0 0 5px grey; 
+    }*/
+
+    /* Handle 
+    ::-webkit-scrollbar-thumb {
+      background: #2d72c3;
+      border-radius: 10px;
+    }*/
+
+    /* Handle on hover 
+    ::-webkit-scrollbar-thumb:hover {
+      background: #002060;
+      border-radius: 10px;
+    }*/
+    /*======media query=======*/
+   .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 1000;
+      display: none;
+      float: left;
+      min-width: 10rem;
+      padding: 0px 5px 5px 5px;
+      margin: .125rem 0 0;
+      font-size: 1rem;
+      color: #212529;
+      text-align: left;
+      list-style: none;
+      background-color: white;
+      background-clip: padding-box;
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: .25rem;
+      height: 190px;
+      overflow-y: auto;
+      box-shadow: 0px 0px 8px 0 rgba(0, 32, 96, 0.62), 0px 3px 20px 0 rgba(0, 0, 0, 0.66);
+    }
+    .drop-tbl thead tr:nth-child(1) th{
+      position: sticky;
+      top: -1px;
+      z-index: 999;
+      font-size: 13px;
+      background: #40e0d0;
+      outline: 1px solid #c8c9cc;
+    }
+    .drop-tbl th, .drop-tbl td{
+      border: 1px solid #c8c9cc!important;
+    }
+    /*=======remark-table========*/
+    .remark-table thead th, .remark-table tr, .remark-table tbody td {
+        border: 1px solid #607d8b;
+        vertical-align: middle;
+        padding: 2px 4px;
+        text-align: center;
+    }
+    .remark-table tbody{
+      font-weight: bold;
+    }
+/*=======media queries========*/
+@media (max-width: 380.98px) { 
+ .top .logo img, .top .logo b{
+  text-align: center;
+  float: none!important;
+ }
+.top .logout b, .top .logout a{
+  text-align: center;
+  float: none!important;
+ }
+ .main_card{
+   height: 100%!important;
+ }
+ .search_tbl thead tr th:nth-child(1) {
+    width: 100%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(2) {
+    width: 50%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(3) {
+    width: 100%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(4) {
+    width: 100%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(5) {
+    width: 100%!important;
+    display: block;
+ }
+ .preI{
+    width: 12vh!important;
+ }
+ .nextI{
+    width: 12vh!important;
+ }
+ .cus-btn {
+    font-size: 10px;
+}
+.table-res{
+   overflow-x: auto;
+}
+.t-r-d{
+  height: 100%;
+ }
+.chklist_table {
+  margin-bottom: 150px!important;
+}
+}
+/*Extra small devices (portrait phones, less than 576px)*/
+@media (min-width:381px) and (max-width: 575.98px) { 
+.top .logo img, .top .logo b{
+  text-align: center;
+  float: none!important;
+ }
+.top .logout b, .top .logout a{
+  text-align: center;
+  float: none!important;
+ }
+ .main_card{
+   height: 100%!important;
+ }
+ .search_tbl thead tr th:nth-child(1) {
+    width: 100%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(2) {
+    width: 50%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(3) {
+    width: 100%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(4) {
+    width: 100%!important;
+    display: block;
+ }
+ .search_tbl thead tr th:nth-child(5) {
+    width: 100%!important;
+    display: block;
+ }
+ .preI{
+    width: 18vh!important;
+ }
+ .nextI{
+    width: 18vh!important;
+ }
+ .cus-btn {
+    font-size: 10px;
+}
+.table-res{
+   overflow-x: auto;
+}
+.t-r-d{
+  height: 100%;
+ }
+.chklist_table {
+  margin-bottom: 150px!important;
+}
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) { 
+.top .logo img, .top .logo b{
+  text-align: center;
+  float: none!important;
+ }
+.top .logout b, .top .logout a{
+  text-align: center;
+  float: none!important;
+ }
+ .main_card{
+   height: 100%!important;
+ }
+ .t-r-d{
+  height: 100%;
+ }
+ .chklist_table {
+  margin-bottom: 150px!important;
+}
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+.top .logo img, .top .logo b{
+  text-align: center;
+  float: none!important;
+ }
+.top .logout b, .top .logout a{
+  text-align: center;
+  float: none!important;
+ }
+ .main_card{
+   height: 100%!important;
+ }
+ .t-r-d{
+  height: 100%;
+ }
+ .chklist_table {
+  margin-bottom: 150px!important;
+}
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+ .t-r-d{
+  height: 53vh;
+}
+}
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+.t-r-d{
+  height: 60vh;
+}
+}
+/*=====Dropdown style======*/
+div.dropdown_main {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
+
+div.dropdown {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+div.dropdown > div.caption {
+  background-color: #f2f2f2;
+  padding: 3px 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 25px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+div.dropdown > div.list {
+  position: absolute;
+  background-color: #f2f2f2;
+  width: 100px;
+  border-radius: 0 0 3px 3px;
+  display: none;
+  z-index: 101!important;
+  left: -32px;
+  border: 2px solid #c5bebe;
+  box-shadow: 0 3px 5px 0px hsla(0, 1%, 11%, 0.44), 0px 3px 6px 2px hsla(0, 0%, 9%, 0.43);
+}
+
+div.dropdown > div.list > div.item {
+  padding: 0px 0px;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+div.dropdown > div.list > div.item.selected {
+  font-weight: bold;
+}
+
+div.dropdown > div.caption:hover,
+div.dropdown > div.list > div.item:hover {
+  background-color: rgb(83, 161, 214);
+}
+
+div.dropdown > div.caption:hover {
+  background-color: rgb(242, 242, 242);
+}
+
+div.dropdown.open > div.caption {
+  border-radius: 3px 3px 0 0;
+  border-bottom: solid 1px #999;
+}
+
+div.dropdown.open > div.list {
+  display: block;
+}
+.cut-text { 
+  white-space: normal;
+  font-weight:400;
+  text-align:justify;
+}
+  </style>
+</head>
+<body style="background: url(assets/images/bg-body.png)">
+  
+<div class="container-fluid mt-1">
+  <div class="row mx-0">
+    <div class="col-md-12 card shadow main_card mx-auto" style="height: 99vh">
+      <div class="row py-1 top">
+         <div class="col-lg-3 text-center logo">
+           <img class="float-left" src="assets/images/images2.png" height="52px" width="auto">
+         </div>
+         <div class="col-lg-6">
+           <h4 class="text-center my-2">
+              <b>UPRD- TECHNICAL EVALUATION PORTAL</b> 
+           </h4>
+         </div>
+         <div class="col-lg-3 text-center logout">
+          <b class="float-right text-primary py-2" style="font-size: 17px">
+             <a href="#"><i class="fas fa-power-off"></i> Logout</a></b>
+         </div>
+      </div>
+      <form method="POST" action="">
+      <table class="table table-bordered search_tbl border-0 mb-0">
+        <thead class="border-0">
+          <tr>
+            <th width="50%">
+              <div class="input-group mb-0">
+                 <input type="text"  class="form-control" name="meterial_no" placeholder="Enter Serial Number" value="" style="border: 1px solid #218ec9;" required/>
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-info w-100" name="search" >Search</button>
+                </div>
+              </div>
+            </th>
+            <th width="10%">
+              <!-- <button type="submit" class="btn btn-info w-100" name="search" >Search</button> -->
+            </th>
+            <!-- <th class="mx-auto" width="30%">
+              <a class="btn btn-warning btn-sm my-1">Quotation Ratio Report</a>
+              <a class="btn btn-warning btn-sm my-1">LC Accepttance</a>
+              <a class="btn btn-warning btn-sm my-1">Items Report</a>
+            </th> -->
+            <!--  <th width="15%">
+             <button type="submit" class="btn btn-outline-primary w-100" name="" disabled><i class="fas fa-user"></i>&ensp;Medical Supplies</button>
+            </th> -->
+            <th width="10%">
+              <!-- <a href="" class="btn btn-success w-100">Download</a> -->
+            </th>
+            <th width="15%">
+              <a href="supplier-report.html" class="btn btn-info w-100" target="_blank" onclick="fnExcelReport()" style="background: #218ec9">Download</a>
+            </th>
+          </tr>
+        </thead>
+      </table>
+    </form>
+      <div class="table-res">
+      <table class="table table-bordered mb-0 table_1">
+        <thead>
+          <tr class="text-left head-1">
+            <th colspan="3">Meterial No :</th>
+            <th colspan="2">Tender Number :</th>
+            <th colspan="3">Tender Name :</th>
+            <th colspan="2">User Type : NPT0011-19 SUPER MASTER</th>
+            <th colspan="2">Date :</th>
+          </tr><!-- 
+          <tr class="text-left head-2">
+            <th colspan="11">Meterial Description :</th>
+            <th width="30%" colspan="2" style="font-size: 12px">
+              Legend :
+              <span>
+                <b style="color: #0bd013">✔</b>-ACCEPT
+              </span>
+              <span>
+                <b style="color: red">✘</b>-REJECT
+              </span>
+            </th>
+          </tr> -->
+        </thead>
+      </table>
+      </div>
+      <div class="table table-responsive t-r-d border-bottom mb-0">
+        <table class="table table-bordered  text-center chklist_table mb-0">
+          <thead>
+            <tr class="head-3">
+                <th colspan="5">Fixed Weight</th>
+                <th>30%</th>
+                <th>10%</th>
+                <th>25%</th>
+                <th>15%</th>
+                <th>10%</th>
+                <th>20%</th>
+                <th></th>
+                <th rowspan="3" colspan="14" class="text-left" style="white-space: normal;font-weight:800;">Meterial Description : <i class="cut-text text-truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</i></th>
+            </tr>
+            <tr class="head-3">
+                <th colspan="5">Real Weight</th>
+                <th>43.40</th>
+                <th>759.49</th>
+                <th>226.04</th>
+                <th>81.37</th>
+                <th>9.04</th>
+                <th>144.67</th>
+                <th>1264</th>
+            </tr>
+            <tr class="head-3">
+                <th colspan="5">Quantity</th>
+                <th>80</th>
+                <th>4200</th>
+                <th>500</th>
+                <th>300</th>
+                <th>50</th>
+                <th>400</th>
+                <th>5530</th>
+            </tr>
+            <tr class="head-3">
+              <th>S.N</th>
+              <th>Material No</th>
+              <th>Vendor No</th>
+              <th>Vendor_Name</th>
+              <th>Group</th>
+              <th>MOHQ</th>
+              <th>KSUH</th>
+              <th>MODA</th>
+              <th>KFMC</th>
+              <th>KAMC</th>
+              <th>NGHA</th>
+              <th>Selected Qty</th>
+              <th>Select Score</th>
+              <th>Score By Weight</th>
+              <th>Price</th>
+              <th>Total Amount</th>
+              <th>Deviation</th>
+              <th>Split</th>
+              <th>Total Score</th>
+              <th>Group Score</th>
+              <th>Group Price_Score</th>
+              <th>Final Score</th>
+              <th>Rejection</th>
+              <th>Rank</th>
+              <th>LC</th>
+              <th>Indicator</th>
+            </tr>
+            
+          </thead>
+
+          <tbody style="font-size: 13px;">
+            <tr>
+                  <td>1</td>
+                  <td>4227190336300</td>
+                  <td>400375</td>
+                  <td>alshifa medical syringe company -Orig-</td>
+                  <td>GROUP - 1</td>
+                  <td>80</td>
+                  <td>4200</td>
+                  <td>0</td>
+                  <td>0</td>
+                  <td>40</td>
+                  <td>0</td>
+                  <td>4320</td>
+                  <td>1.00</td>
+                  <td>2019</td>
+                  <td>5.89</td>
+                  <td>25436</td>
+                  <td>0.50</td>
+                  <td>YES</td>
+                  <td>1012</td>
+                  <td>1.00</td>
+                  <td>0.50</td>
+                  <td>506</td>
+                  <td>NO</td>
+                  <td>3</td>
+                  <td>NO</td>
+                  <td>10</td>
+            </tr>
+          </tbody>
+        </table> 
+      </div>
+      <div class="col-md-12 bg-white" style="position:absolute;bottom:0;left:0;z-index:100;">
+        
+        <div class="col-md-12 mx-0 text-right">   
+          <p class="mb-0" style="font-size: 12px">Showing 1 ( 6 ) of 802 entries</p>
+        </div>
+        <div class="row mx-0 my-1">         
+          <div class="col-lg-4 col-md-5 col-5 text-center py-1">
+            <a class="btn btn-info text-white cus-btn preI" style="width: 33vh;">
+            <i class="fas fa-arrow-left"></i> Previous Item</a>
+          </div>
+           <div class="col-lg-4 col-md-2 col-2 text-center py-1">
+            <!-- <a class="btn btn-info text-white cus-btn" style="width: 16vw;">
+            <i class="fas fa-save"></i> Save</a> -->
+          </div>
+          <div class="col-lg-4 col-md-5 col-5 text-center py-1">
+            <a class="btn btn-info text-white cus-btn nextI" style="width: 33vh;">
+            Next Item <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>          
+</div>
+</body>
+</html>
